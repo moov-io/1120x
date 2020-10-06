@@ -26,10 +26,15 @@ _testmain.go
 bin/
 *.db
 
-/lint-project.sh
+# code coverage
+coverage.html
+cover.out
+coverage.txt
 misspell*
 staticcheck*
-coverage.txt
+/lint-project.sh
+bin/
+tmp/
 
 pkger*
 pkged.go
