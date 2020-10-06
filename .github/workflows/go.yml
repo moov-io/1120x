@@ -14,6 +14,26 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
+    # Install some dependencies, see the jbowtie/ratago for more information
+    #
+    # https://github.com/jbowtie/ratago#installation
+    - name: Install Linux Deps
+      if: runner.os == 'Linux'
+      run: |
+        apt-get update -qq
+        apt-get install -y pkg-config libxml2
+
+    - name: Install macOS Deps
+      if: runner.os == 'macOS'
+      run: |
+        brew install pkg-config libxml2
+        sudo ln -s /usr/local/opt/libxml2/include/libxml2/libxml /usr/local/include/libxml
+
+    - name: Install Deps
+      run: |
+        GO111MODULE=on go get github.com/jbowtie/ratago
+
+    # Setup Go and start our checks
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
       with:
