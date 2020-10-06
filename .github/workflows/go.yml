@@ -12,7 +12,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [ubuntu-latest, macos-latest] # TODO(adam): support windows-latest with libxml2
     steps:
     # Install some dependencies, see the jbowtie/ratago for more information
     #
@@ -29,9 +29,9 @@ jobs:
         brew install pkg-config libxml2
         sudo ln -s /usr/local/opt/libxml2/include/libxml2/libxml /usr/local/include/libxml
 
-    - name: Install Windows Dependencies
-      if: runner.os == 'Windows'
-      run: choco install -y xsltproc
+    # - name: Install Windows Dependencies
+    #   if: runner.os == 'Windows'
+    #   run: choco install -y xsltproc
 
     - name: Install Deps
       env:
@@ -48,9 +48,9 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v2
 
-    - name: Install make (Windows)
-      if: runner.os == 'Windows'
-      run: choco install -y make mingw
+    # - name: Install make (Windows)
+    #   if: runner.os == 'Windows'
+    #   run: choco install -y make mingw
 
     - name: Check
       run: make check
