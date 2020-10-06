@@ -30,8 +30,10 @@ jobs:
         sudo ln -s /usr/local/opt/libxml2/include/libxml2/libxml /usr/local/include/libxml
 
     - name: Install Deps
+      env:
+        GO111MODULE: "on"
       run: |
-        GO111MODULE=on go get github.com/jbowtie/ratago
+        go get github.com/jbowtie/ratago
 
     # Setup Go and start our checks
     - name: Set up Go 1.x
