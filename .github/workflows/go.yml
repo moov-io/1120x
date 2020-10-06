@@ -31,7 +31,7 @@ jobs:
 
     - name: Install Windows Dependencies
       if: runner.os == 'Windows'
-      run: pacman -Ss libxml2
+      run: choco install -y xsltproc
 
     - name: Install Deps
       env:
