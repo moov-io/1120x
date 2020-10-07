@@ -77,6 +77,7 @@ func (g *htmlGenerator) GeneratePDF(htmls []HtmlData) ([]PdfData, error) {
 	for _, htmlData := range htmls {
 		r := bytes.NewReader(htmlData)
 		page := wkhtmltopdf.NewPageReader(r)
+		page.EnableLocalFileAccess.Set(true)
 		tmltopdf.AddPage(page)
 		err = tmltopdf.Create()
 		if err != nil {
