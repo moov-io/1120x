@@ -1,3 +1,7 @@
+// Copyright 2020 The Moov Authors
+// Use of this source code is governed by an Apache License
+// license that can be found in the LICENSE file.
+
 package pdf_generator
 
 import (
@@ -31,8 +35,6 @@ var (
 	basePath   = filepath.Dir(b)
 
 	pathStylesheets = filepath.Join(basePath, "..", "..", "data", "mef", "Stylesheets")
-	pathMefAsset    = filepath.Join(basePath, "..", "..", "data")
-	pdfNamePattern  = "generated_pdf_"
 	xmlNamePattern  = "generated_xml_"
 	tempDir         = ""
 	xsltProc        = "xsltproc"
@@ -75,6 +77,7 @@ func (g *htmlGenerator) GeneratePDF(htmls []HtmlData) ([]PdfData, error) {
 	for _, htmlData := range htmls {
 		r := bytes.NewReader(htmlData)
 		page := wkhtmltopdf.NewPageReader(r)
+		page.EnableLocalFileAccess.Set(true)
 		tmltopdf.AddPage(page)
 		err = tmltopdf.Create()
 		if err != nil {

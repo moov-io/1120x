@@ -1,3 +1,7 @@
+// Copyright 2020 The Moov Authors
+// Use of this source code is governed by an Apache License
+// license that can be found in the LICENSE file.
+
 package xmls
 
 import (
@@ -737,15 +741,6 @@ func (r *Return1099) String() string {
 	}
 	re := regexp.MustCompile(`(?m)^\s*$[\r\n]*|[\r\n]+\s+\z`)
 	return re.ReplaceAllString(string(buf), "")
-}
-
-func (r *Return1099) removeDocument() {
-	r.ReturnData.IRS990 = nil
-	r.ReturnData.IRS990ScheduleA = nil
-	r.ReturnData.IRS990ScheduleB = nil
-	r.ReturnData.IRS990ScheduleD = nil
-	r.ReturnData.IRS990ScheduleM = nil
-	r.ReturnData.IRS990ScheduleO = nil
 }
 
 func formatXML(data []byte) ([]byte, error) {
