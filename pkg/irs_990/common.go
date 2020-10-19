@@ -1304,7 +1304,7 @@ func (r HospitalNameAndAddressGrpType) Validate() error {
 	return utils.Validate(&r)
 }
 
-// IP address type to include either decimal or hexidecimal format
+// IP address type to include either decimal or hexi decimal format
 type IPAddressType struct {
 	IPv4AddressTxt IPv4Type `xml:"IPv4AddressTxt"`
 	IPv6AddressTxt IPv6Type `xml:"IPv6AddressTxt"`

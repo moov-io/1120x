@@ -162,7 +162,7 @@ type IRS990 struct {
 	Form8282PropertyDisposedOfInd  bool                                `xml:"Form8282PropertyDisposedOfInd,omitempty" json:",omitempty"`
 	Form8282FiledCnt               int                                 `xml:"Form8282FiledCnt,omitempty" json:",omitempty"`
 	RcvFndsToPayPrsnlBnftCntrctInd bool                                `xml:"RcvFndsToPayPrsnlBnftCntrctInd,omitempty" json:",omitempty"`
-	PayPremiumsPrsnlBnftCntrctInd  bool                                `xml:"PayPremiumsPrsnlBnftCntrctInd,omitempty" json:",omitempty" json:",omitempty"`
+	PayPremiumsPrsnlBnftCntrctInd  bool                                `xml:"PayPremiumsPrsnlBnftCntrctInd,omitempty" json:",omitempty"`
 	Form8899Filedind               bool                                `xml:"Form8899Filedind,omitempty" json:",omitempty"`
 	Form1098CFiledInd              bool                                `xml:"Form1098CFiledInd,omitempty" json:",omitempty"`
 	DAFExcessBusinessHoldingsInd   bool                                `xml:"DAFExcessBusinessHoldingsInd,omitempty" json:",omitempty"`
@@ -516,7 +516,7 @@ type IRS990Type struct {
 	Form8282PropertyDisposedOfInd  bool                                `xml:"Form8282PropertyDisposedOfInd,omitempty" json:",omitempty"`
 	Form8282FiledCnt               int                                 `xml:"Form8282FiledCnt,omitempty" json:",omitempty"`
 	RcvFndsToPayPrsnlBnftCntrctInd bool                                `xml:"RcvFndsToPayPrsnlBnftCntrctInd,omitempty" json:",omitempty"`
-	PayPremiumsPrsnlBnftCntrctInd  bool                                `xml:"PayPremiumsPrsnlBnftCntrctInd,omitempty" json:",omitempty" json:",omitempty"`
+	PayPremiumsPrsnlBnftCntrctInd  bool                                `xml:"PayPremiumsPrsnlBnftCntrctInd,omitempty" json:",omitempty"`
 	Form8899Filedind               bool                                `xml:"Form8899Filedind,omitempty" json:",omitempty"`
 	Form1098CFiledInd              bool                                `xml:"Form1098CFiledInd,omitempty" json:",omitempty"`
 	DAFExcessBusinessHoldingsInd   bool                                `xml:"DAFExcessBusinessHoldingsInd,omitempty" json:",omitempty"`

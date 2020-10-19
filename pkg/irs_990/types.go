@@ -8,6 +8,7 @@ import (
 	"bytes"
 	"encoding/xml"
 	"errors"
+	"fmt"
 	"reflect"
 	"regexp"
 	"time"
@@ -176,7 +177,7 @@ func (r CHNAConductedYr) Validate() error {
 
 func (r CHNAConductedYr) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{2}`)
-	if !reg.MatchString(string(r)) {
+	if !reg.MatchString(fmt.Sprint(r)) {
 		return errors.New("CHNAConductedYr is invalid")
 	}
 	return nil
@@ -613,7 +614,7 @@ func (r ImplementationStrategyAdptYr) Validate() error {
 
 func (r ImplementationStrategyAdptYr) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{2}`)
-	if !reg.MatchString(string(r)) {
+	if !reg.MatchString(fmt.Sprint(r)) {
 		return errors.New("ImplementationStrategyAdptYr is invalid")
 	}
 	return nil
