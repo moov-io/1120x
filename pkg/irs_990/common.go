@@ -126,8 +126,8 @@ func (r BusTrInvolveInterestedPrsnGrp) Validate() error {
 }
 
 type BusinessNameType struct {
-	BusinessNameLine1Txt BusinessNameLine1Type `xml:"BusinessNameLine1Txt"`
-	BusinessNameLine2Txt BusinessNameLine2Type `xml:"BusinessNameLine2Txt,omitempty" json:",omitempty"`
+	BusinessNameLine1Txt BusinessNameLine1Type  `xml:"BusinessNameLine1Txt"`
+	BusinessNameLine2Txt *BusinessNameLine2Type `xml:"BusinessNameLine2Txt,omitempty" json:",omitempty"`
 }
 
 func (r BusinessNameType) Validate() error {
@@ -437,9 +437,9 @@ func (r FeesForServicesProfFundraising) Validate() error {
 type Filer struct {
 	EIN                    EINType                 `xml:"EIN"`
 	BusinessName           BusinessNameType        `xml:"BusinessName"`
-	InCareOfNm             InCareOfNameType        `xml:"InCareOfNm,omitempty" json:",omitempty"`
+	InCareOfNm             *InCareOfNameType       `xml:"InCareOfNm,omitempty" json:",omitempty"`
 	BusinessNameControlTxt BusinessNameControlType `xml:"BusinessNameControlTxt"`
-	PhoneNum               PhoneNumberType         `xml:"PhoneNum,omitempty" json:",omitempty"`
+	PhoneNum               *PhoneNumberType        `xml:"PhoneNum,omitempty" json:",omitempty"`
 	USAddress              USAddressType           `xml:"USAddress"`
 	ForeignAddress         ForeignAddressType      `xml:"ForeignAddress"`
 }
@@ -469,12 +469,12 @@ func (r ForeignActivitiesInd) Validate() error {
 }
 
 type ForeignAddressType struct {
-	AddressLine1Txt   StreetAddressType `xml:"AddressLine1Txt"`
-	AddressLine2Txt   StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
-	CityNm            string            `xml:"CityNm,omitempty" json:",omitempty"`
-	ProvinceOrStateNm string            `xml:"ProvinceOrStateNm,omitempty" json:",omitempty"`
-	CountryCd         CountryType       `xml:"CountryCd"`
-	ForeignPostalCd   string            `xml:"ForeignPostalCd,omitempty" json:",omitempty"`
+	AddressLine1Txt   StreetAddressType  `xml:"AddressLine1Txt"`
+	AddressLine2Txt   *StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
+	CityNm            string             `xml:"CityNm,omitempty" json:",omitempty"`
+	ProvinceOrStateNm string             `xml:"ProvinceOrStateNm,omitempty" json:",omitempty"`
+	CountryCd         CountryType        `xml:"CountryCd"`
+	ForeignPostalCd   string             `xml:"ForeignPostalCd,omitempty" json:",omitempty"`
 }
 
 func (r ForeignAddressType) Validate() error {
@@ -1613,12 +1613,12 @@ func (r OthHlthCareFcltsNotHospitalGrp) Validate() error {
 }
 
 type OtherForeignAddressType struct {
-	AddressLine1Txt   StreetAddressType `xml:"AddressLine1Txt,omitempty" json:",omitempty"`
-	AddressLine2Txt   StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
-	CityNm            string            `xml:"CityNm,omitempty" json:",omitempty"`
-	ProvinceOrStateNm string            `xml:"ProvinceOrStateNm,omitempty" json:",omitempty"`
-	CountryCd         CountryType       `xml:"CountryCd,omitempty" json:",omitempty"`
-	ForeignPostalCd   string            `xml:"ForeignPostalCd,omitempty" json:",omitempty"`
+	AddressLine1Txt   *StreetAddressType `xml:"AddressLine1Txt,omitempty" json:",omitempty"`
+	AddressLine2Txt   *StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
+	CityNm            string             `xml:"CityNm,omitempty" json:",omitempty"`
+	ProvinceOrStateNm string             `xml:"ProvinceOrStateNm,omitempty" json:",omitempty"`
+	CountryCd         CountryType        `xml:"CountryCd,omitempty" json:",omitempty"`
+	ForeignPostalCd   string             `xml:"ForeignPostalCd,omitempty" json:",omitempty"`
 }
 
 func (r OtherForeignAddressType) Validate() error {
@@ -1626,11 +1626,11 @@ func (r OtherForeignAddressType) Validate() error {
 }
 
 type OtherUSAddressType struct {
-	AddressLine1Txt     StreetAddressType `xml:"AddressLine1Txt,omitempty" json:",omitempty"`
-	AddressLine2Txt     StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
-	CityNm              CityType          `xml:"CityNm,omitempty" json:",omitempty"`
-	StateAbbreviationCd StateType         `xml:"StateAbbreviationCd,omitempty" json:",omitempty"`
-	ZIPCd               ZIPCodeType       `xml:"ZIPCd,omitempty" json:",omitempty"`
+	AddressLine1Txt     *StreetAddressType `xml:"AddressLine1Txt,omitempty" json:",omitempty"`
+	AddressLine2Txt     *StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
+	CityNm              CityType           `xml:"CityNm,omitempty" json:",omitempty"`
+	StateAbbreviationCd *StateType         `xml:"StateAbbreviationCd,omitempty" json:",omitempty"`
+	ZIPCd               ZIPCodeType        `xml:"ZIPCd,omitempty" json:",omitempty"`
 }
 
 func (r OtherUSAddressType) Validate() error {
@@ -1686,10 +1686,10 @@ func (r PractitionerPINGrp) Validate() error {
 }
 
 type PreparerFirmGrp struct {
-	PreparerFirmEIN        EINType            `xml:"PreparerFirmEIN,omitempty" json:",omitempty"`
-	PreparerFirmName       BusinessNameType   `xml:"PreparerFirmName"`
-	PreparerUSAddress      USAddressType      `xml:"PreparerUSAddress"`
-	PreparerForeignAddress ForeignAddressType `xml:"PreparerForeignAddress"`
+	PreparerFirmEIN        EINType             `xml:"PreparerFirmEIN,omitempty" json:",omitempty"`
+	PreparerFirmName       BusinessNameType    `xml:"PreparerFirmName"`
+	PreparerUSAddress      USAddressType       `xml:"PreparerUSAddress"`
+	PreparerForeignAddress *ForeignAddressType `xml:"PreparerForeignAddress,omitempty" json:",omitempty"`
 }
 
 func (r PreparerFirmGrp) Validate() error {
@@ -1946,11 +1946,11 @@ func (r TrnsfrExmptNonChrtblRltdOrgInd) Validate() error {
 }
 
 type USAddressType struct {
-	AddressLine1Txt     StreetAddressType `xml:"AddressLine1Txt"`
-	AddressLine2Txt     StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
-	CityNm              CityType          `xml:"CityNm"`
-	StateAbbreviationCd StateType         `xml:"StateAbbreviationCd"`
-	ZIPCd               ZIPCodeType       `xml:"ZIPCd"`
+	AddressLine1Txt     StreetAddressType  `xml:"AddressLine1Txt"`
+	AddressLine2Txt     *StreetAddressType `xml:"AddressLine2Txt,omitempty" json:",omitempty"`
+	CityNm              CityType           `xml:"CityNm"`
+	StateAbbreviationCd StateType          `xml:"StateAbbreviationCd"`
+	ZIPCd               ZIPCodeType        `xml:"ZIPCd"`
 }
 
 func (r USAddressType) Validate() error {

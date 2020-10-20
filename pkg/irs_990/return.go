@@ -59,14 +59,14 @@ type ReturnHeaderType struct {
 	ReturnTs                    TimestampType      `xml:"ReturnTs"`
 	TaxPeriodEndDt              DateType           `xml:"TaxPeriodEndDt"`
 	DisasterReliefTxt           string             `xml:"DisasterReliefTxt,omitempty" json:",omitempty"`
-	ISPNum                      ISPType            `xml:"ISPNum,omitempty" json:",omitempty"`
+	ISPNum                      *ISPType           `xml:"ISPNum,omitempty" json:",omitempty"`
 	PreparerFirmGrp             *PreparerFirmGrp   `xml:"PreparerFirmGrp,omitempty" json:",omitempty"`
 	SoftwareId                  SoftwareIdType     `xml:"SoftwareId"`
 	SoftwareVersionNum          string             `xml:"SoftwareVersionNum,omitempty" json:",omitempty"`
 	MultSoftwarePackagesUsedInd bool               `xml:"MultSoftwarePackagesUsedInd"`
 	OriginatorGrp               OriginatorGrp      `xml:"OriginatorGrp"`
-	PINEnteredByCd              PINEnteredByCd     `xml:"PINEnteredByCd,omitempty" json:",omitempty"`
-	SignatureOptionCd           SignatureOptionCd  `xml:"SignatureOptionCd,omitempty" json:",omitempty"`
+	PINEnteredByCd              *PINEnteredByCd    `xml:"PINEnteredByCd,omitempty" json:",omitempty"`
+	SignatureOptionCd           *SignatureOptionCd `xml:"SignatureOptionCd,omitempty" json:",omitempty"`
 	ReturnTypeCd                ReturnTypeCd       `xml:"ReturnTypeCd"`
 	TaxPeriodBeginDt            DateType           `xml:"TaxPeriodBeginDt"`
 	Filer                       Filer              `xml:"Filer"`

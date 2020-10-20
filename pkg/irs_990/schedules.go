@@ -86,7 +86,7 @@ type IRS990ScheduleA struct {
 	FactsAndCircumstancesTestTxt   string                           `xml:"FactsAndCircumstancesTestTxt,omitempty" json:",omitempty"`
 	Form990ScheduleAPartVIGrp      []Form990ScheduleAPartVIGrp      `xml:"Form990ScheduleAPartVIGrp,omitempty" json:",omitempty"`
 	DocumentId                     IdType                           `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                   `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                           `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                           `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -197,7 +197,7 @@ type IRS990ScheduleB struct {
 	TotalUnder1000ContributionsAmt int                                  `xml:"TotalUnder1000ContributionsAmt,omitempty" json:",omitempty"`
 	CharitableContributionsDetail  []CharitableContributionsDetailType  `xml:"CharitableContributionsDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                               `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                       `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                               `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                               `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -291,7 +291,7 @@ type IRS990ScheduleC struct {
 	TaxableAmt                     int                             `xml:"TaxableAmt,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                          `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -463,7 +463,7 @@ type IRS990ScheduleD struct {
 	TotalExpensesPerForm990Amt     int                             `xml:"TotalExpensesPerForm990Amt,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                          `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -593,7 +593,7 @@ type IRS990ScheduleE struct {
 	ComplianceWithRevProc7550Ind   bool                            `xml:"ComplianceWithRevProc7550Ind,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                          `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -653,7 +653,7 @@ type IRS990ScheduleF struct {
 	BoycottCountriesInd           bool                                `xml:"BoycottCountriesInd,omitempty" json:",omitempty"`
 	SupplementalInformationDetail []SupplementalInformationDetail     `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                    IdType                              `xml:"documentId,attr"`
-	SoftwareId                    SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                    *SoftwareIdType                     `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum            string                              `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                  string                              `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -740,7 +740,7 @@ type IRS990ScheduleG struct {
 	DistributedAmt                 int                                 `xml:"DistributedAmt,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail     `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                              `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                     `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                              `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                              `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -866,7 +866,7 @@ type IRS990ScheduleH struct {
 	OthHlthCareFcltsNotHospitalGrp *OthHlthCareFcltsNotHospitalGrp `xml:"OthHlthCareFcltsNotHospitalGrp,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                          `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -952,7 +952,7 @@ type IRS990ScheduleI struct {
 	GrantsOtherAsstToIndivInUSGrp []GrantsOtherAsstToIndivInUSGrp `xml:"GrantsOtherAsstToIndivInUSGrp,omitempty" json:",omitempty"`
 	SupplementalInformationDetail []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                    IdType                          `xml:"documentId,attr"`
-	SoftwareId                    SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                    *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum            string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                  string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1005,7 +1005,7 @@ type IRS990ScheduleJ struct {
 	RltdOrgOfficerTrstKeyEmplGrp   []RltdOrgOfficerTrstKeyEmplGrp  `xml:"RltdOrgOfficerTrstKeyEmplGrp,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                          `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1058,7 +1058,7 @@ type IRS990ScheduleK struct {
 	ProceduresCorrectiveActionGrp  []ProceduresCorrectiveActionGrpType  `xml:"ProceduresCorrectiveActionGrp,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail      `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                               `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                       `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                               `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                               `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1091,7 +1091,7 @@ type IRS990ScheduleL struct {
 	BusTrInvolveInterestedPrsnGrp []BusTrInvolveInterestedPrsnGrp     `xml:"BusTrInvolveInterestedPrsnGrp,omitempty" json:",omitempty"`
 	SupplementalInformationDetail []SupplementalInformationDetail     `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                    IdType                              `xml:"documentId,attr"`
-	SoftwareId                    SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                    *SoftwareIdType                     `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum            string                              `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                  string                              `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1148,7 +1148,7 @@ type IRS990ScheduleM struct {
 	ThirdPartiesUsedInd            bool                            `xml:"ThirdPartiesUsedInd,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                          `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1214,7 +1214,7 @@ type IRS990ScheduleN struct {
 	ReceiveCompensation2Ind       bool                            `xml:"ReceiveCompensation2Ind,omitempty" json:",omitempty"`
 	SupplementalInformationDetail []SupplementalInformationDetail `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                    IdType                          `xml:"documentId,attr"`
-	SoftwareId                    SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                    *SoftwareIdType                 `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum            string                          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                  string                          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1251,7 +1251,7 @@ func (r IRS990ScheduleNType) Validate() error {
 type IRS990ScheduleO struct {
 	SupplementalInformationDetail []SupplementalInformationDetailType `xml:"SupplementalInformationDetail"`
 	DocumentId                    IdType                              `xml:"documentId,attr"`
-	SoftwareId                    SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                    *SoftwareIdType                     `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum            string                              `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                  string                              `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1297,7 +1297,7 @@ type IRS990ScheduleR struct {
 	UnrelatedOrgTxblPartnershipGrp []UnrelatedOrgTxblPartnershipGrp `xml:"UnrelatedOrgTxblPartnershipGrp,omitempty" json:",omitempty"`
 	SupplementalInformationDetail  []SupplementalInformationDetail  `xml:"SupplementalInformationDetail,omitempty" json:",omitempty"`
 	DocumentId                     IdType                           `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                   `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                  `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                           `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                           `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1343,7 +1343,7 @@ func (r IRS990ScheduleRType) Validate() error {
 type AffiliateListing struct {
 	AffiliateListingGrp []AffiliateListingGrpType `xml:"AffiliateListingGrp,omitempty" json:",omitempty"`
 	DocumentId          IdType                    `xml:"documentId,attr"`
-	SoftwareId          SoftwareIdType            `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId          *SoftwareIdType           `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum  string                    `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName        string                    `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1362,11 +1362,11 @@ func (r AffiliateListingType) Validate() error {
 }
 
 type ReasonableCauseExplanation struct {
-	ExplanationTxt     string         `xml:"ExplanationTxt,omitempty" json:",omitempty"`
-	DocumentId         IdType         `xml:"documentId,attr"`
-	SoftwareId         SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
-	SoftwareVersionNum string         `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
-	DocumentName       string         `xml:"documentName,attr,omitempty" json:",omitempty"`
+	ExplanationTxt     string          `xml:"ExplanationTxt,omitempty" json:",omitempty"`
+	DocumentId         IdType          `xml:"documentId,attr"`
+	SoftwareId         *SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareVersionNum string          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
+	DocumentName       string          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
 
 func (r ReasonableCauseExplanation) Validate() error {
@@ -1383,11 +1383,11 @@ func (r ReasonableCauseExplanationType) Validate() error {
 }
 
 type AffiliatedGroupAttachment struct {
-	MeduimExplanationTxt string         `xml:"MeduimExplanationTxt,omitempty" json:",omitempty"`
-	DocumentId           IdType         `xml:"documentId,attr"`
-	SoftwareId           SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
-	SoftwareVersionNum   string         `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
-	DocumentName         string         `xml:"documentName,attr,omitempty" json:",omitempty"`
+	MeduimExplanationTxt string          `xml:"MeduimExplanationTxt,omitempty" json:",omitempty"`
+	DocumentId           IdType          `xml:"documentId,attr"`
+	SoftwareId           *SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareVersionNum   string          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
+	DocumentName         string          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
 
 func (r AffiliatedGroupAttachment) Validate() error {
@@ -1406,7 +1406,7 @@ func (r AffiliatedGroupAttachmentType) Validate() error {
 type AffiliatedGroupSchedule struct {
 	AffiliatedScheduleGrp []AffiliatedScheduleGrp `xml:"AffiliatedScheduleGrp,omitempty" json:",omitempty"`
 	DocumentId            IdType                  `xml:"documentId,attr"`
-	SoftwareId            SoftwareIdType          `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId            *SoftwareIdType         `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum    string                  `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName          string                  `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1425,11 +1425,11 @@ func (r AffiliatedGroupScheduleType) Validate() error {
 }
 
 type AveragingAttachment struct {
-	ExplanationTxt     string         `xml:"ExplanationTxt,omitempty" json:",omitempty"`
-	DocumentId         IdType         `xml:"documentId,attr"`
-	SoftwareId         SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
-	SoftwareVersionNum string         `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
-	DocumentName       string         `xml:"documentName,attr,omitempty" json:",omitempty"`
+	ExplanationTxt     string          `xml:"ExplanationTxt,omitempty" json:",omitempty"`
+	DocumentId         IdType          `xml:"documentId,attr"`
+	SoftwareId         *SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareVersionNum string          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
+	DocumentName       string          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
 
 func (r AveragingAttachment) Validate() error {
@@ -1452,7 +1452,7 @@ type RequestForCopyAttachment struct {
 	PIN                      PINType              `xml:"PIN"`
 	Dt                       DateType             `xml:"Dt"`
 	DocumentId               IdType               `xml:"documentId,attr"`
-	SoftwareId               SoftwareIdType       `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId               *SoftwareIdType      `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum       string               `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName             string               `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
@@ -1475,13 +1475,13 @@ func (r RequestForCopyAttachmentType) Validate() error {
 }
 
 type BinaryAttachment struct {
-	DocumentTypeCd        DocumentTypeCd `xml:"DocumentTypeCd"`
-	Desc                  string         `xml:"Desc"`
-	AttachmentLocationTxt string         `xml:"AttachmentLocationTxt"`
-	DocumentId            IdType         `xml:"documentId,attr"`
-	SoftwareId            SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
-	SoftwareVersionNum    string         `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
-	DocumentName          string         `xml:"documentName,attr,omitempty" json:",omitempty"`
+	DocumentTypeCd        DocumentTypeCd  `xml:"DocumentTypeCd"`
+	Desc                  string          `xml:"Desc"`
+	AttachmentLocationTxt string          `xml:"AttachmentLocationTxt"`
+	DocumentId            IdType          `xml:"documentId,attr"`
+	SoftwareId            *SoftwareIdType `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareVersionNum    string          `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
+	DocumentName          string          `xml:"documentName,attr,omitempty" json:",omitempty"`
 }
 
 func (r BinaryAttachment) Validate() error {

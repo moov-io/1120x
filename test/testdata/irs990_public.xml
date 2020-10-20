@@ -15,6 +15,11 @@
         <ZIPCd>92037</ZIPCd>
       </PreparerUSAddress>
     </PreparerFirmGrp>
+    <SoftwareId>00000001</SoftwareId>
+    <OriginatorGrp>
+      <EFIN>000000</EFIN>
+      <OriginatorTypeCd>ERO</OriginatorTypeCd>
+    </OriginatorGrp>
     <ReturnTypeCd>990</ReturnTypeCd>
     <TaxPeriodBeginDt>2014-01-01</TaxPeriodBeginDt>
     <Filer>

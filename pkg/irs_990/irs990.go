@@ -352,7 +352,7 @@ type IRS990 struct {
 	FederalGrantAuditRequiredInd   bool                                `xml:"FederalGrantAuditRequiredInd,omitempty" json:",omitempty"`
 	FederalGrantAuditPerformedInd  bool                                `xml:"FederalGrantAuditPerformedInd,omitempty" json:",omitempty"`
 	DocumentId                     IdType                              `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                     `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                              `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                              `xml:"documentName,attr,omitempty" json:",omitempty"`
 	ReferenceDocumentId            IdListType                          `xml:"referenceDocumentId,attr,omitempty" json:",omitempty"`
