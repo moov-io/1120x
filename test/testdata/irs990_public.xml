@@ -518,7 +518,7 @@
     </IRS990ScheduleA>
     <IRS990ScheduleB documentId="RetDoc1234500001">
       <ContributorInformationGrp>
-        <ContributorNum>RESTRICTED</ContributorNum>
+        <ContributorNum>1</ContributorNum>
         <ContributorBusinessName>
           <BusinessNameLine1>RESTRICTED</BusinessNameLine1>
         </ContributorBusinessName>
@@ -529,7 +529,7 @@
           <State>RESTRICTED</State>
           <ZIPCode>RESTRICTED</ZIPCode>
         </ContributorUSAddress>
-        <TotalContributionsAmt>RESTRICTED</TotalContributionsAmt>
+        <TotalContributionsAmt>0</TotalContributionsAmt>
       </ContributorInformationGrp>
     </IRS990ScheduleB>
     <IRS990ScheduleD documentId="RetDoc1040000001">
