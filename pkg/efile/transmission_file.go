@@ -5,8 +5,9 @@ type IrsTransmissionFile interface {
 	Validate() error
 	SOAPEnvelope() ([]byte, error)
 	SOAPAttachment() ([]byte, error)
+	Version() string
 }
 
 func NewIrs990TransmissionFile() IrsTransmissionFile {
-	return nil
+	return &Irs990TransmissionFile{}
 }

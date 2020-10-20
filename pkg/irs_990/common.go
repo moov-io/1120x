@@ -1686,10 +1686,10 @@ func (r PractitionerPINGrp) Validate() error {
 }
 
 type PreparerFirmGrp struct {
-	PreparerFirmEIN        EINType             `xml:"PreparerFirmEIN,omitempty" json:",omitempty"`
-	PreparerFirmName       BusinessNameType    `xml:"PreparerFirmName"`
-	PreparerUSAddress      USAddressType       `xml:"PreparerUSAddress"`
-	PreparerForeignAddress *ForeignAddressType `xml:"PreparerForeignAddress,omitempty" json:",omitempty"`
+	PreparerFirmEIN        EINType            `xml:"PreparerFirmEIN,omitempty" json:",omitempty"`
+	PreparerFirmName       BusinessNameType   `xml:"PreparerFirmName"`
+	PreparerUSAddress      USAddressType      `xml:"PreparerUSAddress"`
+	PreparerForeignAddress ForeignAddressType `xml:"PreparerForeignAddress"`
 }
 
 func (r PreparerFirmGrp) Validate() error {

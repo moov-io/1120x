@@ -16,3 +16,7 @@ func (r Irs990TransmissionFile) SOAPEnvelope() ([]byte, error) {
 func (r Irs990TransmissionFile) SOAPAttachment() ([]byte, error) {
 	return nil, nil
 }
+
+func (r Irs990TransmissionFile) Version() string {
+	return "2015v2.0"
+}
