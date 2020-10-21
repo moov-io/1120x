@@ -6,18 +6,18 @@ package irs_990
 
 import "github.com/moov-io/1120x/pkg/utils"
 
-type Return struct {
+type ReturnDataReturn struct {
 	ReturnHeader  ReturnHeaderType `xml:"ReturnHeader"`
 	ReturnData    ReturnData       `xml:"ReturnData"`
 	Xmlns         string           `xml:"xmlns,attr,omitempty" json:",omitempty"`
 	ReturnVersion string           `xml:"returnVersion,attr"`
 }
 
-func (r Return) Validate() error {
+func (r ReturnDataReturn) Validate() error {
 	return utils.Validate(&r)
 }
 
-func (r Return) Init() error {
+func (r *ReturnDataReturn) Init() error {
 	r.Xmlns = "http://www.irs.gov/efile"
 	return nil
 }

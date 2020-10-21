@@ -2156,3 +2156,157 @@ type TransactionsRelatedOrgGrpType struct {
 func (r TransactionsRelatedOrgGrpType) Validate() error {
 	return utils.Validate(&r)
 }
+
+type ValidationErrorListType struct {
+	ValidationErrorGrp []ValidationErrorGrp `xml:"ValidationErrorGrp"`
+	ErrorCnt           int                  `xml:"errorCnt,attr"`
+}
+
+func (r ValidationErrorListType) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ValidationErrorGrp struct {
+	DocumentId      IdType `xml:"DocumentId"`
+	XpathContentTxt string `xml:"XpathContentTxt,omitempty" json:",omitempty"`
+	ErrorCategoryCd string `xml:"ErrorCategoryCd"`
+	ErrorMessageTxt string `xml:"ErrorMessageTxt"`
+	RuleNum         string `xml:"RuleNum"`
+	SeverityCd      string `xml:"SeverityCd"`
+	FieldValueTxt   string `xml:"FieldValueTxt,omitempty" json:",omitempty"`
+	ErrorId         int    `xml:"errorId,attr"`
+}
+
+func (r ValidationErrorGrp) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ValidationAlertListType struct {
+	ValidationAlertGrp []ValidationAlertGrp `xml:"ValidationAlertGrp"`
+	AlertCnt           int                  `xml:"alertCnt,attr"`
+}
+
+func (r ValidationAlertListType) Validate() error {
+	return utils.Validate(&r)
+}
+
+type ValidationAlertGrp struct {
+	DocumentId      IdType `xml:"DocumentId"`
+	XpathContentTxt string `xml:"XpathContentTxt,omitempty" json:",omitempty"`
+	AlertCategoryCd string `xml:"AlertCategoryCd"`
+	AlertMessageTxt string `xml:"AlertMessageTxt"`
+	RuleNum         string `xml:"RuleNum"`
+	SeverityCd      string `xml:"SeverityCd"`
+	FieldValueTxt   string `xml:"FieldValueTxt,omitempty" json:",omitempty"`
+	AlertId         int    `xml:"alertId,attr"`
+}
+
+func (r ValidationAlertGrp) Validate() error {
+	return utils.Validate(&r)
+}
+
+type SubmissionReceiptGrp struct {
+	SubmissionId         SubmissionIdType `xml:"SubmissionId"`
+	SubmissionReceivedTs TimestampType    `xml:"SubmissionReceivedTs"`
+}
+
+func (r SubmissionReceiptGrp) Validate() error {
+	return utils.Validate(&r)
+}
+
+type StatusRecordGrp struct {
+	SubmissionId                  SubmissionIdType `SubmissionId"`
+	SubmissionStatusTxt           string           `SubmissionStatusTxt"`
+	SubmsnStatusAcknowledgementDt DateType         `SubmsnStatusAcknowledgementDt"`
+	DisclaimerTxt                 string           `DisclaimerTxt,omitempty" json:",omitempty"`
+}
+
+func (r StatusRecordGrp) Validate() error {
+	return utils.Validate(&r)
+}
+
+type Acknowledgement struct {
+	SubmissionId                SubmissionIdType              `xml:"SubmissionId"`
+	EFIN                        EFINType                      `xml:"EFIN"`
+	ExtndGovernmentCd           ExtndGovernmentCdType         `xml:"ExtndGovernmentCd"`
+	SubmissionTyp               SubmissionTyp                 `xml:"SubmissionTyp"`
+	ExtndSubmissionCategoryCd   ExtndSubmissionCategoryCdType `xml:"ExtndSubmissionCategoryCd"`
+	AcceptanceStatusTxt         string                        `xml:"AcceptanceStatusTxt"`
+	ContainedAlertsInd          bool                          `xml:"ContainedAlertsInd"`
+	StatusDt                    DateType                      `xml:"StatusDt"`
+	TIN                         EINType                       `xml:"TIN"`
+	TempId                      TempIdType                    `xml:"TempId"`
+	ExpectedRefundAmt           int                           `xml:"ExpectedRefundAmt"`
+	BalanceDueAmt               int                           `xml:"BalanceDueAmt"`
+	TaxYr                       *YearType                     `xml:"TaxYr,omitempty" json:",omitempty"`
+	ElectronicPostmarkTs        *TimestampType                `xml:"ElectronicPostmarkTs,omitempty" json:",omitempty"`
+	IRSSubmissionId             *SubmissionIdType             `xml:"IRSSubmissionId,omitempty" json:",omitempty"`
+	StateSubmissionCopyCnt      int                           `xml:"StateSubmissionCopyCnt,omitempty" json:",omitempty"`
+	IRSReceivedDt               *DateType                     `xml:"IRSReceivedDt,omitempty" json:",omitempty"`
+	ExtensionFilingTypeDesc     string                        `xml:"ExtensionFilingTypeDesc,omitempty" json:",omitempty"`
+	TaxPeriodEndDt              *DateType                     `xml:"TaxPeriodEndDt,omitempty" json:",omitempty"`
+	PaymentRequestRcvdCd        *PaymentRequestRcvdCd         `xml:"PaymentRequestRcvdCd,omitempty" json:",omitempty"`
+	SubmissionValidationCompInd bool                          `xml:"SubmissionValidationCompInd,omitempty" json:",omitempty"`
+	EmbeddedCRC32Num            *EmbeddedCRC32Num             `xml:"EmbeddedCRC32Num,omitempty" json:",omitempty"`
+	ComputedCRC32Num            *ComputedCRC32Num             `xml:"ComputedCRC32Num,omitempty" json:",omitempty"`
+	TaxableIncomeAmt            int                           `xml:"TaxableIncomeAmt,omitempty" json:",omitempty"`
+	TotalTaxAmt                 int                           `xml:"TotalTaxAmt,omitempty" json:",omitempty"`
+	NetIncomeLossAmt            int                           `xml:"NetIncomeLossAmt,omitempty" json:",omitempty"`
+	ReservedIPAddressCd         string                        `xml:"ReservedIPAddressCd,omitempty" json:",omitempty"`
+	BirthDtValidityCd           string                        `xml:"BirthDtValidityCd,omitempty" json:",omitempty"`
+	PINPresenceCd               string                        `xml:"PINPresenceCd,omitempty" json:",omitempty"`
+	ITINMismatchCd              string                        `xml:"ITINMismatchCd,omitempty" json:",omitempty"`
+	ValidationErrorList         *ValidationErrorListType      `xml:"ValidationErrorList,omitempty" json:",omitempty"`
+	ValidationAlertList         *ValidationAlertListType      `xml:"ValidationAlertList,omitempty" json:",omitempty"`
+	SubmissionVersionNum        string                        `xml:"submissionVersionNum,attr,omitempty" json:",omitempty"`
+	ValidatingSchemaVersionNum  string                        `xml:"validatingSchemaVersionNum,attr,omitempty" json:",omitempty"`
+}
+
+func (r Acknowledgement) Validate() error {
+	return utils.Validate(&r)
+}
+
+type AcknowledgementList struct {
+	Cnt             int               `xml:"Cnt"`
+	Acknowledgement []Acknowledgement `xml:"http://www.irs.gov/efile Acknowledgement,omitempty" json:",omitempty"`
+}
+
+func (r AcknowledgementList) Validate() error {
+	return utils.Validate(&r)
+}
+
+type SubmissionReceiptList struct {
+	Cnt                  int                    `xml:"Cnt"`
+	SubmissionReceiptGrp []SubmissionReceiptGrp `xml:"SubmissionReceiptGrp,omitempty" json:",omitempty"`
+}
+
+func (r SubmissionReceiptList) Validate() error {
+	return utils.Validate(&r)
+}
+
+type StatusRecordList struct {
+	Cnt             int               `xml:"Cnt"`
+	StatusRecordGrp []StatusRecordGrp `xml:"StatusRecordGrp,omitempty" json:",omitempty"`
+}
+
+func (r StatusRecordList) Validate() error {
+	return utils.Validate(&r)
+}
+
+type AckNotification struct {
+	SubmissionId SubmissionIdType `xml:"SubmissionId"`
+	Ts           TimestampType    `xml:"Ts"`
+}
+
+func (r AckNotification) Validate() error {
+	return utils.Validate(&r)
+}
+
+type AckNotificationList struct {
+	Cnt             int               `xml:"Cnt"`
+	AckNotification []AckNotification `xml:"AckNotification,omitempty" json:",omitempty"`
+}
+
+func (r AckNotificationList) Validate() error {
+	return utils.Validate(&r)
+}

@@ -19,7 +19,7 @@ func TestIrs990TestSuite(t *testing.T) {
 	assert.Equal(t, nil, err)
 
 	// 1. parse from xml data
-	returnData := &Return{}
+	returnData := &ReturnDataReturn{}
 
 	err = returnData.Validate()
 	assert.NotNil(t, err)
@@ -36,7 +36,7 @@ func TestIrs990TestSuite(t *testing.T) {
 	assert.Equal(t, nil, err)
 
 	// 4. json buf to struct
-	newReturnData := &Return{}
+	newReturnData := &ReturnDataReturn{}
 
 	err = json.Unmarshal(jsonBuf, newReturnData)
 	assert.Equal(t, nil, err)

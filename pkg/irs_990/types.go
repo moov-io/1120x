@@ -1251,3 +1251,115 @@ func (t xsdTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	m, err := t.MarshalText()
 	return xml.Attr{Name: name, Value: string(m)}, err
 }
+
+// Must match the pattern [0-9]{13}[a-z0-9]{7}
+type SubmissionIdType string
+
+func (r SubmissionIdType) Validate() error {
+	reg := regexp.MustCompile(`[0-9]{13}[a-z0-9]{7}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("ETINType is invalid")
+	}
+	return nil
+}
+
+type ExtndGovernmentCdType string
+
+// Must match the pattern [A-Za-z0-9\-]+
+type StateSubmissionTyp string
+
+func (r StateSubmissionTyp) Validate() error {
+	reg := regexp.MustCompile(`[A-Za-z0-9\-]+`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("StateSubmissionTyp is invalid")
+	}
+	return nil
+}
+
+// Must match the pattern [A-Za-z0-9\-]+
+type SubmissionTyp string
+
+func (r SubmissionTyp) Validate() error {
+	reg := regexp.MustCompile(`[A-Za-z0-9\-]+`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("SubmissionTyp is invalid")
+	}
+	return nil
+}
+
+// May be no more than 9 items long
+type TempIdType string
+
+func (r TempIdType) Validate() error {
+	if len(r) > 9 {
+		return errors.New("TempIdType is invalid")
+	}
+	return nil
+}
+
+type ExtndSubmissionCategoryCdType string
+
+// May be one of Payment Request Received
+type PaymentRequestRcvdCd string
+
+// Must match the pattern 0x[0-9A-Fa-f]{1,8}
+type EmbeddedCRC32Num string
+
+func (r EmbeddedCRC32Num) Validate() error {
+	reg := regexp.MustCompile(`0x[0-9A-Fa-f]{1,8}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("EmbeddedCRC32Num is invalid")
+	}
+	return nil
+}
+
+// Must match the pattern 0x[0-9A-Fa-f]{1,8}
+type ComputedCRC32Num string
+
+func (r ComputedCRC32Num) Validate() error {
+	reg := regexp.MustCompile(`0x[0-9A-Fa-f]{1,8}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("ComputedCRC32Num is invalid")
+	}
+	return nil
+}
+
+// May be one of 56, 720, 940, 940PR, 941, 941PR, 941SS, 943, 943PR, 944, 945, 990, 990EZ, 990N, 990PF, 1040, 1040A, 1040EZ, 1040PR, 1040SS, 1041, 1120, 1120F, 1120POL, 1120S, 1065, 1065B, 2290, 2350, 4868, 7004, 8849, 8868, 9465
+type FederalSubmissionTypeCd string
+
+func (r FederalSubmissionTypeCd) Validate() error {
+	for _, vv := range []string{
+		"56", " 720", " 940", " 940PR", " 941", " 941PR", " 941SS", " 943", " 943PR", " 944", " 945", " 990", " 990EZ",
+		" 990N", " 990PF", " 1040", " 1040A", " 1040EZ", " 1040PR", " 1040SS", " 1041", " 1120", " 1120F", " 1120POL",
+		" 1120S", " 1065", " 1065B", " 2290", " 2350", " 4868", " 7004", " 8849", " 8868", " 9465",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return errors.New("FederalSubmissionTypeCd is invalid")
+}
+
+// May be one of CORP, CORPEP, EMPL, EO, ESTRST, ESTRSTEP, ETEC, IND, INDEP, PART, PARTEP
+type SubmissionCategoryType string
+
+func (r SubmissionCategoryType) Validate() error {
+	for _, vv := range []string{
+		"CORP", " CORPEP", " EMPL", " EO", " ESTRST", " ESTRSTEP", " ETEC", " IND", " INDEP", " PART", " PARTEP",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return errors.New("SubmissionCategoryType is invalid")
+}
+
+// May be no more than 9 items long
+type FederalEIN string
+
+func (r FederalEIN) Validate() error {
+	if len(r) > 9 {
+		return errors.New("FederalEIN is invalid")
+	}
+	return nil
+}
