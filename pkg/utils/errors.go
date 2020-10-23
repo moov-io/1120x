@@ -6,6 +6,7 @@ package utils
 
 import (
 	"errors"
+	"fmt"
 	"reflect"
 )
 
@@ -16,6 +17,7 @@ var (
 	ErrFailedCreateTaxReturn = errors.New("failed to create tax return")
 	// ErrEmptyXML is given when hasn't xml document
 	ErrEmptyXML = errors.New("hasn't xml document")
+	debug       = false
 )
 
 var (
@@ -41,9 +43,16 @@ func validateCallbackByValue(data reflect.Value) error {
 // to validate interface
 func Validate(r interface{}) error {
 	var err error
+	if debug {
+		fmt.Println(reflect.ValueOf(r).Type())
+		fmt.Println("==========")
+	}
 	fields := reflect.ValueOf(r).Elem()
 	for i := 0; i < fields.NumField(); i++ {
 		fieldData := fields.Field(i)
+		if debug {
+			fmt.Println(fields.Type().Field(i).Name)
+		}
 		kind := fieldData.Kind()
 		if kind == reflect.Slice {
 			for i := 0; i < fieldData.Len(); i++ {

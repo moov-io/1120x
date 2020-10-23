@@ -91,7 +91,7 @@ type MessageIdType string
 func (r MessageIdType) Validate() error {
 	reg := regexp.MustCompile(`[0-9]{12}[a-z0-9]{8}`)
 	if !reg.MatchString(string(r)) {
-		return errors.New("ETINType is invalid")
+		return errors.New("MessageIdType is invalid")
 	}
 	return nil
 }

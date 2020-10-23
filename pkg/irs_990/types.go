@@ -1258,7 +1258,7 @@ type SubmissionIdType string
 func (r SubmissionIdType) Validate() error {
 	reg := regexp.MustCompile(`[0-9]{13}[a-z0-9]{7}`)
 	if !reg.MatchString(string(r)) {
-		return errors.New("ETINType is invalid")
+		return errors.New("SubmissionIdType is invalid")
 	}
 	return nil
 }
@@ -1329,9 +1329,9 @@ type FederalSubmissionTypeCd string
 
 func (r FederalSubmissionTypeCd) Validate() error {
 	for _, vv := range []string{
-		"56", " 720", " 940", " 940PR", " 941", " 941PR", " 941SS", " 943", " 943PR", " 944", " 945", " 990", " 990EZ",
-		" 990N", " 990PF", " 1040", " 1040A", " 1040EZ", " 1040PR", " 1040SS", " 1041", " 1120", " 1120F", " 1120POL",
-		" 1120S", " 1065", " 1065B", " 2290", " 2350", " 4868", " 7004", " 8849", " 8868", " 9465",
+		"56", "720", "940", "940PR", "941", "941PR", "941SS", "943", "943PR", "944", "945", "990", "990EZ",
+		"990N", "990PF", "1040", "1040A", "1040EZ", "1040PR", "1040SS", "1041", "1120", "1120F", "1120POL",
+		"1120S", "1065", "1065B", "2290", "2350", "4868", "7004", "8849", "8868", "9465",
 	} {
 		if reflect.DeepEqual(string(r), vv) {
 			return nil

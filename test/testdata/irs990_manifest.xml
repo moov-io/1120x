@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IRSSubmissionManifest xmlns="http://www.irs.gov/efile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.irs.gov/efile">
+  <SubmissionId>0000000000111abcdefg</SubmissionId>
+  <EFIN>000001</EFIN>
+  <GovernmentCd>IRS</GovernmentCd>
+  <FederalSubmissionTypeCd>990</FederalSubmissionTypeCd>
+  <TIN>000000001</TIN>
+</IRSSubmissionManifest>

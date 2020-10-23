@@ -182,7 +182,7 @@ func (r IRS990ScheduleAType) Validate() error {
 }
 
 type IRS990ScheduleB struct {
-	Organization501cInd            Organization501cInd                  `xml:"Organization501cInd"`
+	Organization501cInd            *Organization501cInd                 `xml:"Organization501cInd,omitempty" json:",omitempty"`
 	Organization4947a1NotPFInd     CheckboxType                         `xml:"Organization4947a1NotPFInd"`
 	Organization527Ind             CheckboxType                         `xml:"Organization527Ind"`
 	Organization501c3ExemptPFInd   CheckboxType                         `xml:"Organization501c3ExemptPFInd"`
@@ -208,7 +208,7 @@ func (r IRS990ScheduleB) Validate() error {
 
 // Content model for Form 990 Schedule B
 type IRS990ScheduleBType struct {
-	Organization501cInd            Organization501cInd                  `xml:"Organization501cInd"`
+	Organization501cInd            *Organization501cInd                 `xml:"Organization501cInd,omitempty" json:",omitempty"`
 	Organization4947a1NotPFInd     CheckboxType                         `xml:"Organization4947a1NotPFInd"`
 	Organization527Ind             CheckboxType                         `xml:"Organization527Ind"`
 	Organization501c3ExemptPFInd   CheckboxType                         `xml:"Organization501c3ExemptPFInd"`

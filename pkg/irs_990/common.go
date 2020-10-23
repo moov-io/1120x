@@ -135,13 +135,13 @@ func (r BusinessNameType) Validate() error {
 }
 
 type BusinessOfficerGrp struct {
-	PersonNm                   PersonNameType  `xml:"PersonNm"`
-	PersonTitleTxt             PersonTitleType `xml:"PersonTitleTxt"`
-	PhoneNum                   PhoneNumberType `xml:"PhoneNum,omitempty" json:",omitempty"`
-	EmailAddressTxt            string          `xml:"EmailAddressTxt,omitempty" json:",omitempty"`
-	SignatureDt                DateType        `xml:"SignatureDt"`
-	TaxpayerPIN                PINType         `xml:"TaxpayerPIN,omitempty" json:",omitempty"`
-	DiscussWithPaidPreparerInd bool            `xml:"DiscussWithPaidPreparerInd,omitempty" json:",omitempty"`
+	PersonNm                   PersonNameType   `xml:"PersonNm"`
+	PersonTitleTxt             PersonTitleType  `xml:"PersonTitleTxt"`
+	PhoneNum                   *PhoneNumberType `xml:"PhoneNum,omitempty" json:",omitempty"`
+	EmailAddressTxt            string           `xml:"EmailAddressTxt,omitempty" json:",omitempty"`
+	SignatureDt                DateType         `xml:"SignatureDt"`
+	TaxpayerPIN                *PINType         `xml:"TaxpayerPIN,omitempty" json:",omitempty"`
+	DiscussWithPaidPreparerInd bool             `xml:"DiscussWithPaidPreparerInd,omitempty" json:",omitempty"`
 }
 
 func (r BusinessOfficerGrp) Validate() error {
@@ -2215,10 +2215,10 @@ func (r SubmissionReceiptGrp) Validate() error {
 }
 
 type StatusRecordGrp struct {
-	SubmissionId                  SubmissionIdType `SubmissionId"`
-	SubmissionStatusTxt           string           `SubmissionStatusTxt"`
-	SubmsnStatusAcknowledgementDt DateType         `SubmsnStatusAcknowledgementDt"`
-	DisclaimerTxt                 string           `DisclaimerTxt,omitempty" json:",omitempty"`
+	SubmissionId                  SubmissionIdType `xml:"SubmissionId"`
+	SubmissionStatusTxt           string           `xml:"SubmissionStatusTxt"`
+	SubmsnStatusAcknowledgementDt DateType         `xml:"SubmsnStatusAcknowledgementDt"`
+	DisclaimerTxt                 string           `xml:"DisclaimerTxt,omitempty" json:",omitempty"`
 }
 
 func (r StatusRecordGrp) Validate() error {

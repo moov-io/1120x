@@ -21,7 +21,7 @@ type PdfTestSuite struct {
 }
 
 func (suite *PdfTestSuite) SetupTest() {
-	buf, err := ioutil.ReadFile(filepath.Join("..", "test", "testdata", "irs990_public.xml"))
+	buf, err := ioutil.ReadFile(filepath.Join("..", "test", "testdata", "irs990_return.xml"))
 	assert.Equal(suite.T(), nil, err)
 	suite.InputXML = buf
 }

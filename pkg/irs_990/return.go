@@ -6,18 +6,18 @@ package irs_990
 
 import "github.com/moov-io/1120x/pkg/utils"
 
-type ReturnDataReturn struct {
+type Return struct {
 	ReturnHeader  ReturnHeaderType `xml:"ReturnHeader"`
 	ReturnData    ReturnData       `xml:"ReturnData"`
 	Xmlns         string           `xml:"xmlns,attr,omitempty" json:",omitempty"`
 	ReturnVersion string           `xml:"returnVersion,attr"`
 }
 
-func (r ReturnDataReturn) Validate() error {
+func (r Return) Validate() error {
 	return utils.Validate(&r)
 }
 
-func (r *ReturnDataReturn) Init() error {
+func (r *Return) Init() error {
 	r.Xmlns = "http://www.irs.gov/efile"
 	return nil
 }
@@ -73,10 +73,10 @@ type ReturnHeaderType struct {
 	BusinessOfficerGrp          BusinessOfficerGrp `xml:"BusinessOfficerGrp"`
 	PreparerPersonGrp           *PreparerPersonGrp `xml:"PreparerPersonGrp,omitempty" json:",omitempty"`
 	IPAddress                   *IPAddressType     `xml:"IPAddress,omitempty" json:",omitempty"`
-	IPDt                        DateType           `xml:"IPDt,omitempty" json:",omitempty"`
-	IPTm                        TimeType           `xml:"IPTm,omitempty" json:",omitempty"`
-	IPTimezoneCd                TimezoneType       `xml:"IPTimezoneCd,omitempty" json:",omitempty"`
-	DeviceId                    DeviceIdType       `xml:"DeviceId,omitempty" json:",omitempty"`
+	IPDt                        *DateType          `xml:"IPDt,omitempty" json:",omitempty"`
+	IPTm                        *TimeType          `xml:"IPTm,omitempty" json:",omitempty"`
+	IPTimezoneCd                *TimezoneType      `xml:"IPTimezoneCd,omitempty" json:",omitempty"`
+	DeviceId                    *DeviceIdType      `xml:"DeviceId,omitempty" json:",omitempty"`
 	TaxYr                       YearType           `xml:"TaxYr"`
 	BinaryAttachmentCnt         int                `xml:"binaryAttachmentCnt,attr"`
 }

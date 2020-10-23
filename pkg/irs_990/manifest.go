@@ -10,14 +10,6 @@ import (
 	"github.com/moov-io/1120x/pkg/utils"
 )
 
-// interface for return
-type IrsManifest interface {
-	Validate() error
-	XmlData() ([]byte, error)
-	SubmissionIdentifier() SubmissionIdType
-	SetSubmissionIdentifier(id SubmissionIdType)
-}
-
 type IRSSubmissionManifest struct {
 	SubmissionId            SubmissionIdType        `xml:"SubmissionId"`
 	EFIN                    EFINType                `xml:"EFIN"`

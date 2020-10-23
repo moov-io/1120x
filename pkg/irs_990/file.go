@@ -15,8 +15,8 @@ import (
 )
 
 type Irs990File struct {
-	XmlData  ReturnDataReturn `xml:"XmlData"`
-	Manifest IrsManifest      `xml:"Manifest,omitempty" json:",omitempty"`
+	XmlData  Return                 `xml:"ReturnXml"`
+	Manifest *IRSSubmissionManifest `xml:"Manifest,omitempty" json:",omitempty"`
 }
 
 func (r Irs990File) Validate() error {
@@ -24,7 +24,6 @@ func (r Irs990File) Validate() error {
 }
 
 func (r *Irs990File) ZipData() ([]byte, error) {
-
 	if r.Manifest == nil {
 		return nil, errors.New("manifest should not empty")
 	}
@@ -32,14 +31,18 @@ func (r *Irs990File) ZipData() ([]byte, error) {
 	// Create a buffer to write our archive to.
 	fileBuf := new(bytes.Buffer)
 
-	// Create a new zip archive.
-	writer := zip.NewWriter(fileBuf)
-	defer writer.Close()
-
 	xmlBuf, err := xml.Marshal(&r.XmlData)
 	if err != nil {
 		return nil, err
 	}
+	manifest, err := r.Manifest.XmlData()
+	if err != nil {
+		return nil, err
+	}
+
+	// Create a new zip archive.
+	writer := zip.NewWriter(fileBuf)
+
 	f, err := writer.Create(filepath.Join("xml", "submission.xml"))
 	if err != nil {
 		return nil, err
@@ -49,10 +52,6 @@ func (r *Irs990File) ZipData() ([]byte, error) {
 		return nil, err
 	}
 
-	manifest, err := r.Manifest.XmlData()
-	if err != nil {
-		return nil, err
-	}
 	f, err = writer.Create(filepath.Join("manifest", "manifest.xml"))
 	if err != nil {
 		return nil, err
@@ -62,7 +61,8 @@ func (r *Irs990File) ZipData() ([]byte, error) {
 		return nil, err
 	}
 
-	return fileBuf.Bytes(), writer.Close()
+	err = writer.Close()
+	return fileBuf.Bytes(), err
 }
 
 func (r Irs990File) Version() string {
