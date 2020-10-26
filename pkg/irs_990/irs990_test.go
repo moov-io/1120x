@@ -15,7 +15,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestReturnXmlTestSuite(t *testing.T) {
+func TestReturnXmlTest(t *testing.T) {
 	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
 	assert.Equal(t, nil, err)
 
@@ -53,49 +53,87 @@ func TestReturnXmlTestSuite(t *testing.T) {
 	assert.Equal(t, xmlOrgBuf, xmlBuf)
 }
 
-func TestManifestXmlTestSuite(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_manifest.xml"))
+func TestSubmissionManifestTest(t *testing.T) {
+	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
 	assert.Equal(t, nil, err)
 
 	// 1. parse from xml data
-	returnData := &IRSSubmissionManifest{}
+	manifest := &IRSSubmissionManifest{}
 
-	err = returnData.Validate()
+	err = manifest.Validate()
 	assert.NotNil(t, err)
 
-	err = xml.Unmarshal(InputXML, returnData)
+	err = xml.Unmarshal(InputXML, manifest)
 	assert.Equal(t, nil, err)
 
 	// 2. struct to xml buf
-	xmlOrgBuf, err := xml.MarshalIndent(returnData, "", "\t")
+	xmlOrgBuf, err := xml.MarshalIndent(manifest, "", "\t")
 	assert.Equal(t, nil, err)
 
 	// 3. struct to json buf
-	jsonBuf, err := json.MarshalIndent(returnData, "", "\t")
+	jsonBuf, err := json.MarshalIndent(manifest, "", "\t")
 	assert.Equal(t, nil, err)
 
 	// 4. json buf to struct
-	newReturnData := &IRSSubmissionManifest{}
+	newManifest := &IRSSubmissionManifest{}
 
-	err = json.Unmarshal(jsonBuf, newReturnData)
+	err = json.Unmarshal(jsonBuf, newManifest)
 	assert.Equal(t, nil, err)
 
 	// 5. struct to xml buf
-	xmlBuf, err := xml.MarshalIndent(newReturnData, "", "\t")
+	xmlBuf, err := xml.MarshalIndent(newManifest, "", "\t")
 	assert.Equal(t, nil, err)
 
-	err = newReturnData.Validate()
+	err = newManifest.Validate()
 	assert.Equal(t, nil, err)
 
 	// 6. check xml buffers
 	assert.Equal(t, xmlOrgBuf, xmlBuf)
 }
 
-func Test990FileTestSuite(t *testing.T) {
+func TestStateSubmissionManifestTest(t *testing.T) {
+	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_state_submission_manifest.xml"))
+	assert.Equal(t, nil, err)
+
+	// 1. parse from xml data
+	manifest := &StateSubmissionManifest{}
+
+	err = manifest.Validate()
+	assert.NotNil(t, err)
+
+	err = xml.Unmarshal(InputXML, manifest)
+	assert.Equal(t, nil, err)
+
+	// 2. struct to xml buf
+	xmlOrgBuf, err := xml.MarshalIndent(manifest, "", "\t")
+	assert.Equal(t, nil, err)
+
+	// 3. struct to json buf
+	jsonBuf, err := json.MarshalIndent(manifest, "", "\t")
+	assert.Equal(t, nil, err)
+
+	// 4. json buf to struct
+	newManifest := &StateSubmissionManifest{}
+
+	err = json.Unmarshal(jsonBuf, newManifest)
+	assert.Equal(t, nil, err)
+
+	// 5. struct to xml buf
+	xmlBuf, err := xml.MarshalIndent(newManifest, "", "\t")
+	assert.Equal(t, nil, err)
+
+	err = newManifest.Validate()
+	assert.Equal(t, nil, err)
+
+	// 6. check xml buffers
+	assert.Equal(t, xmlOrgBuf, xmlBuf)
+}
+
+func Test990FileTest(t *testing.T) {
 	returnBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
 	assert.Equal(t, nil, err)
 
-	manifestBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_manifest.xml"))
+	manifestBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
 	assert.Equal(t, nil, err)
 
 	file := &Irs990File{}

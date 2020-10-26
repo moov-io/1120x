@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Envelope xmlns="http://www.irs.gov/efile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.irs.gov/efile">
+  <Header xmlns:ns1="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:arrayType="ns1:anyType[]">
+    <item>&lt;IFATransmissionHeaderType&gt;&#xA;        &lt;MessageId&gt;012345678912abcdefgh&lt;/MessageId&gt;&#xA;        &lt;TransmitterDetail&gt;&#xA;                &lt;ETIN&gt;12345&lt;/ETIN&gt;&#xA;        &lt;/TransmitterDetail&gt;&#xA;&lt;/IFATransmissionHeaderType&gt;</item>
+  </Header>
+  <Body xmlns:ns1="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" wsdl:arrayType="ns1:anyType[]">
+    <item>&lt;TransmissionManifest&gt;&#xA;        &lt;SubmissionDataList&gt;&#xA;                &lt;Cnt&gt;1&lt;/Cnt&gt;&#xA;                &lt;SubmissionData&gt;&#xA;                        &lt;SubmissionId&gt;0123456789123adcdefg&lt;/SubmissionId&gt;&#xA;                        &lt;ElectronicPostmarkTs&gt;2020-10-26T07:28:40.791485804&lt;/ElectronicPostmarkTs&gt;&#xA;                &lt;/SubmissionData&gt;&#xA;        &lt;/SubmissionDataList&gt;&#xA;&lt;/TransmissionManifest&gt;</item>
+  </Body>
+</Envelope>

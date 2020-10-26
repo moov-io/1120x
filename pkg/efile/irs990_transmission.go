@@ -16,8 +16,7 @@ import (
 )
 
 type Irs990TransmissionFile struct {
-	Header       *IFATransmissionHeaderType
-	Body         *TransmissionManifest
+	Soap         Envelope
 	Attachments  []IrsReturnFile
 	SubmissionId string
 }
@@ -27,28 +26,15 @@ func (r Irs990TransmissionFile) Validate() error {
 }
 
 func (r Irs990TransmissionFile) SOAPEnvelope() ([]byte, error) {
-	envelope := SoapEnvelope{}
-	if r.Header != nil {
-		buf, err := xml.Marshal(r.Header)
-		if err != nil {
-			return nil, err
-		}
-		envelope.Header = &SoapHeader{string(buf)}
-	}
-	if r.Body != nil {
-		buf, err := xml.Marshal(r.Body)
-		if err != nil {
-			return nil, err
-		}
-		envelope.Body = &SoapBody{string(buf)}
-	}
-	envelope.Init()
-
-	return xml.Marshal(envelope)
+	return xml.Marshal(r.Soap)
 }
 
 func (r Irs990TransmissionFile) SOAPAttachment() ([]byte, error) {
-	if len(r.Body.SubmissionDataList.SubmissionData) != len(r.Attachments) {
+	if r.Soap.Body.Manifest == nil {
+		return nil, errors.New("don't include manifest")
+	}
+	data := r.Soap.Body.Manifest.SubmissionDataList
+	if len(data.SubmissionData) != len(r.Attachments) {
 		return nil, errors.New("don't match submission data and attachments")
 	}
 
@@ -59,7 +45,7 @@ func (r Irs990TransmissionFile) SOAPAttachment() ([]byte, error) {
 	writer := zip.NewWriter(fileBuf)
 	defer writer.Close()
 
-	submission := r.Body.SubmissionDataList.SubmissionData
+	submission := data.SubmissionData
 	for index, attachment := range r.Attachments {
 		name := string(submission[index].SubmissionId)
 		f, err := writer.Create(name)

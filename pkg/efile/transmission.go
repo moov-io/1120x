@@ -30,7 +30,3 @@ type IrsReturnFile interface {
 	ZipData() ([]byte, error)
 	Version() string
 }
-
-func NewIrs990TransmissionFile() IrsTransmissionFile {
-	return &Irs990TransmissionFile{}
-}

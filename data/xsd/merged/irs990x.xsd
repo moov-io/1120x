@@ -22845,76 +22845,76 @@ elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
 	</xsd:element>
 	
 	<!-- Envelope, header and body -->
-	<xs:element name="Envelope" type="tns:Envelope"/>
-	<xs:complexType name="Envelope">
-		<xs:sequence>
-			<xs:element ref="tns:Header" minOccurs="0"/>
-			<xs:element ref="tns:Body" minOccurs="1"/>
-			<xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
-		</xs:sequence>
-		<xs:anyAttribute namespace="##other" processContents="strict"/>
-	</xs:complexType>
-	<xs:element name="Header" type="tns:Header"/>
-	<xs:complexType name="Header">
-		<xs:sequence>
+	<xsd:element name="Envelope" type="tns:Envelope"/>
+	<xsd:complexType name="Envelope">
+		<xsd:sequence>
+			<xsd:element ref="Header" minOccurs="0"/>
+			<xsd:element ref="Body" minOccurs="1"/>
+			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="strict"/>
+	</xsd:complexType>
+	<xsd:element name="Header" type="tns:Header"/>
+	<xsd:complexType name="Header">
+		<xsd:sequence>
 			<!-- Temporary workaround -->
-			<!-- <xs:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="strict"/> -->
+			<!-- <xsd:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="strict"/> -->
 			<!-- Original -->
-			<xs:any namespace="##other" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
-		</xs:sequence>
-		<xs:anyAttribute namespace="##other" processContents="strict"/>
-	</xs:complexType>
-	<xs:element name="Body" type="tns:Body"/>
-	<xs:complexType name="Body">
-		<xs:sequence>
-			<xs:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
-		</xs:sequence>
-		<xs:anyAttribute namespace="##any" processContents="strict">
-			<xs:annotation>
-				<xs:documentation>
+			<xsd:any namespace="##other" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="strict"/>
+	</xsd:complexType>
+	<xsd:element name="Body" type="tns:Body"/>
+	<xsd:complexType name="Body">
+		<xsd:sequence>
+			<xsd:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##any" processContents="strict">
+			<xsd:annotation>
+				<xsd:documentation>
 		  Prose in the spec does not specify that attributes are allowed on the Body element
-		</xs:documentation>
-			</xs:annotation>
-		</xs:anyAttribute>
-	</xs:complexType>
+		</xsd:documentation>
+			</xsd:annotation>
+		</xsd:anyAttribute>
+	</xsd:complexType>
 	<!-- Global Attributes.  The following attributes are intended to be usable via qualified attribute names on any complex type referencing them.  -->
-	<xs:attribute name="mustUnderstand" default="0">
-		<xs:simpleType>
-			<xs:restriction base="xs:boolean">
-				<xs:pattern value="0|1"/>
-			</xs:restriction>
-		</xs:simpleType>
-	</xs:attribute>
-	<xs:attribute name="actor" type="xs:anyURI"/>
-	<xs:simpleType name="encodingStyle">
-		<xs:annotation>
-			<xs:documentation>
+	<xsd:attribute name="mustUnderstand" default="0">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:boolean">
+				<xsd:pattern value="0|1"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:attribute name="actor" type="xsd:anyURI"/>
+	<xsd:simpleType name="encodingStyle">
+		<xsd:annotation>
+			<xsd:documentation>
 	    'encodingStyle' indicates any canonicalization conventions followed in the contents of the containing element.  For example, the value 'http://schemas.xmlsoap.org/soap/encoding/' indicates the pattern described in SOAP specification
-	  </xs:documentation>
-		</xs:annotation>
-		<xs:list itemType="xs:anyURI"/>
-	</xs:simpleType>
-	<xs:attributeGroup name="encodingStyle">
-		<xs:attribute name="encodingStyle" type="tns:encodingStyle"/>
-	</xs:attributeGroup>
-	<xs:complexType name="Fault" final="extension">
-		<xs:annotation>
-			<xs:documentation>
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:list itemType="xsd:anyURI"/>
+	</xsd:simpleType>
+	<xsd:attributeGroup name="encodingStyle">
+		<xsd:attribute name="encodingStyle" type="tns:encodingStyle"/>
+	</xsd:attributeGroup>
+	<xsd:complexType name="Fault" final="extension">
+		<xsd:annotation>
+			<xsd:documentation>
 	    Fault reporting structure
-	  </xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="faultcode" type="xs:QName"/>
-			<xs:element name="faultstring" type="xs:string"/>
-			<xs:element name="faultactor" type="xs:anyURI" minOccurs="0"/>
-			<xs:element name="detail" type="tns:detail" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="detail">
-		<xs:sequence>
-			<xs:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
-		</xs:sequence>
-		<xs:anyAttribute namespace="##any" processContents="strict"/>
-	</xs:complexType>
+	  </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="faultcode" type="xsd:QName"/>
+			<xsd:element name="faultstring" type="xsd:string"/>
+			<xsd:element name="faultactor" type="xsd:anyURI" minOccurs="0"/>
+			<xsd:element name="detail" type="tns:detail" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="detail">
+		<xsd:sequence>
+			<xsd:any namespace="##any" minOccurs="0" maxOccurs="unbounded" processContents="strict"/>
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##any" processContents="strict"/>
+	</xsd:complexType>
 	
 </xsd:schema>
