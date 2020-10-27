@@ -14,7 +14,17 @@
         <StateAbbreviationCd>CA</StateAbbreviationCd>
         <ZIPCd>92037</ZIPCd>
       </PreparerUSAddress>
+      <PreparerForeignAddress>
+        <AddressLine1Txt>4225 EXECUTIVE SQUARE SUITE 1150</AddressLine1Txt>
+        <CityNm>LA JOLLA</CityNm>
+        <CountryCd>LA</CountryCd>
+      </PreparerForeignAddress>
     </PreparerFirmGrp>
+    <SoftwareId>00000001</SoftwareId>
+    <OriginatorGrp>
+      <EFIN>000000</EFIN>
+      <OriginatorTypeCd>ERO</OriginatorTypeCd>
+    </OriginatorGrp>
     <ReturnTypeCd>990</ReturnTypeCd>
     <TaxPeriodBeginDt>2014-01-01</TaxPeriodBeginDt>
     <Filer>
@@ -30,6 +40,11 @@
         <StateAbbreviationCd>CA</StateAbbreviationCd>
         <ZIPCd>92106</ZIPCd>
       </USAddress>
+      <ForeignAddress>
+        <AddressLine1Txt>2508 HISTORIC DECATUR SUITE 120</AddressLine1Txt>
+        <CityNm>SAN DIEGO</CityNm>
+        <CountryCd>CA</CountryCd>
+      </ForeignAddress>
     </Filer>
     <BusinessOfficerGrp>
       <PersonNm>ANN ALPERT</PersonNm>
@@ -40,6 +55,7 @@
     </BusinessOfficerGrp>
     <PreparerPersonGrp>
       <PreparerPersonNm>MARY H MCGROARTY</PreparerPersonNm>
+      <SSN>000735102</SSN>
       <PTIN>P00735101</PTIN>
       <PhoneNum>8585589200</PhoneNum>
     </PreparerPersonGrp>
@@ -49,12 +65,20 @@
   <ReturnData documentCnt="6">
     <IRS990 documentId="RetDoc1038000001" referenceDocumentId="RetDoc1044400001">
       <PrincipalOfficerNm>SCOTT LEWIS</PrincipalOfficerNm>
+      <PrincipalOfcrBusinessName>
+        <BusinessNameLine1Txt>SCOTT LEWIS</BusinessNameLine1Txt>
+      </PrincipalOfcrBusinessName>
       <USAddress>
         <AddressLine1Txt>2508 HISTORIC DECATUR SUITE 120</AddressLine1Txt>
         <CityNm>SAN DIEGO</CityNm>
         <StateAbbreviationCd>CA</StateAbbreviationCd>
         <ZIPCd>92106</ZIPCd>
       </USAddress>
+      <ForeignAddress>
+        <AddressLine1Txt>2508 HISTORIC DECATUR SUITE 120</AddressLine1Txt>
+        <CityNm>SAN DIEGO</CityNm>
+        <CountryCd>CA</CountryCd>
+      </ForeignAddress>
       <GrossReceiptsAmt>1753504</GrossReceiptsAmt>
       <GroupReturnForAffiliatesInd>0</GroupReturnForAffiliatesInd>
       <Organization501c3Ind>X</Organization501c3Ind>
@@ -62,6 +86,7 @@
       <TypeOfOrganizationCorpInd>X</TypeOfOrganizationCorpInd>
       <FormationYr>2004</FormationYr>
       <LegalDomicileStateCd>CA</LegalDomicileStateCd>
+      <LegalDomicileCountryCd>CA</LegalDomicileCountryCd>
       <ActivityOrMissionDesc>ON-LINE NEWSPAPER OPERATED EXCLUSIVELY TO EDUCATE AND INFORM RESIDENTS OF SAN DIEGO COUNTY THROUGH IN-DEPTH INVESTIGATIVE JOURNALISM ABOUT CIVIC AND REGIONAL ISSUES SO THAT RESIDENTS CAN BECOME ADVOCATES FOR GOOD GOVERNMENT AND SOCIAL PROGRESS.</ActivityOrMissionDesc>
       <VotingMembersGoverningBodyCnt>5</VotingMembersGoverningBodyCnt>
       <VotingMembersIndependentCnt>5</VotingMembersIndependentCnt>
@@ -199,6 +224,7 @@
       <OtherWebsiteInd>X</OtherWebsiteInd>
       <UponRequestInd>X</UponRequestInd>
       <BooksInCareOfDetail>
+        <PersonNm>ANN ALPERT</PersonNm>
         <BusinessName>
           <BusinessNameLine1Txt>ANN ALPERT</BusinessNameLine1Txt>
         </BusinessName>
@@ -209,9 +235,17 @@
           <StateAbbreviationCd>CA</StateAbbreviationCd>
           <ZIPCd>92037</ZIPCd>
         </USAddress>
+        <ForeignAddress>
+          <AddressLine1Txt>4225 EXECUTIVE SQUARE SUITE 1150</AddressLine1Txt>
+          <CityNm>LA JOLLA</CityNm>
+          <CountryCd>LA</CountryCd>
+        </ForeignAddress>
       </BooksInCareOfDetail>
       <Form990PartVIISectionAGrp>
         <PersonNm>R B WOOLLEY</PersonNm>
+        <BusinessName>
+          <BusinessNameLine1Txt>R B WOOLLEY</BusinessNameLine1Txt>
+        </BusinessName>
         <TitleTxt>CHAIRMAN OF THE BOARD</TitleTxt>
         <AverageHoursPerWeekRt>16.00</AverageHoursPerWeekRt>
         <IndividualTrusteeOrDirectorInd>X</IndividualTrusteeOrDirectorInd>
@@ -221,6 +255,9 @@
       </Form990PartVIISectionAGrp>
       <Form990PartVIISectionAGrp>
         <PersonNm>ROBERT PAGE</PersonNm>
+        <BusinessName>
+          <BusinessNameLine1Txt>ROBERT PAGE</BusinessNameLine1Txt>
+        </BusinessName>
         <TitleTxt>ASSISTANT SECRETARY/BOARD</TitleTxt>
         <AverageHoursPerWeekRt>8.00</AverageHoursPerWeekRt>
         <IndividualTrusteeOrDirectorInd>X</IndividualTrusteeOrDirectorInd>
@@ -231,6 +268,9 @@
       </Form990PartVIISectionAGrp>
       <Form990PartVIISectionAGrp>
         <PersonNm>REID CARR</PersonNm>
+        <BusinessName>
+          <BusinessNameLine1Txt>REID CARR</BusinessNameLine1Txt>
+        </BusinessName>
         <TitleTxt>BOARD MEMBER</TitleTxt>
         <AverageHoursPerWeekRt>8.00</AverageHoursPerWeekRt>
         <IndividualTrusteeOrDirectorInd>X</IndividualTrusteeOrDirectorInd>
@@ -240,6 +280,9 @@
       </Form990PartVIISectionAGrp>
       <Form990PartVIISectionAGrp>
         <PersonNm>BLAIR BLUM</PersonNm>
+        <BusinessName>
+          <BusinessNameLine1Txt>BLAIR BLUM</BusinessNameLine1Txt>
+        </BusinessName>
         <TitleTxt>SECRETARY/BOARD MEMBER</TitleTxt>
         <AverageHoursPerWeekRt>16.00</AverageHoursPerWeekRt>
         <IndividualTrusteeOrDirectorInd>X</IndividualTrusteeOrDirectorInd>
@@ -250,6 +293,9 @@
       </Form990PartVIISectionAGrp>
       <Form990PartVIISectionAGrp>
         <PersonNm>EUGENE MITCHELL</PersonNm>
+        <BusinessName>
+          <BusinessNameLine1Txt>EUGENE MITCHELL</BusinessNameLine1Txt>
+        </BusinessName>
         <TitleTxt>BOARD MEMBER</TitleTxt>
         <AverageHoursPerWeekRt>8.00</AverageHoursPerWeekRt>
         <IndividualTrusteeOrDirectorInd>X</IndividualTrusteeOrDirectorInd>
@@ -259,6 +305,9 @@
       </Form990PartVIISectionAGrp>
       <Form990PartVIISectionAGrp>
         <PersonNm>ANN ALPERT</PersonNm>
+        <BusinessName>
+          <BusinessNameLine1Txt>ANN ALPERT</BusinessNameLine1Txt>
+        </BusinessName>
         <TitleTxt>CFO</TitleTxt>
         <AverageHoursPerWeekRt>16.00</AverageHoursPerWeekRt>
         <OfficerInd>X</OfficerInd>
@@ -268,6 +317,9 @@
       </Form990PartVIISectionAGrp>
       <Form990PartVIISectionAGrp>
         <PersonNm>SCOTT LEWIS</PersonNm>
+        <BusinessName>
+          <BusinessNameLine1Txt>SCOTT LEWIS</BusinessNameLine1Txt>
+        </BusinessName>
         <TitleTxt>PRESIDENT/CEO</TitleTxt>
         <AverageHoursPerWeekRt>40.00</AverageHoursPerWeekRt>
         <OfficerInd>X</OfficerInd>
@@ -520,15 +572,21 @@
       <ContributorInformationGrp>
         <ContributorNum>1</ContributorNum>
         <ContributorBusinessName>
-          <BusinessNameLine1>RESTRICTED</BusinessNameLine1>
+          <BusinessNameLine1Txt>RESTRICTED</BusinessNameLine1Txt>
         </ContributorBusinessName>
+        <ContributorPersonNm>RESTRICTED</ContributorPersonNm>
         <ContributorUSAddress>
-          <AddressLine1>RESTRICTED</AddressLine1>
-          <AddressLine2>RESTRICTED</AddressLine2>
-          <City>RESTRICTED</City>
-          <State>RESTRICTED</State>
-          <ZIPCode>RESTRICTED</ZIPCode>
+          <AddressLine1Txt>RESTRICTED</AddressLine1Txt>
+          <AddressLine2Txt>RESTRICTED</AddressLine2Txt>
+          <CityNm>RESTRICTED</CityNm>
+          <StateAbbreviationCd>CA</StateAbbreviationCd>
+          <ZIPCd>92037</ZIPCd>
         </ContributorUSAddress>
+        <ContributorForeignAddress>
+          <AddressLine1Txt>4225 EXECUTIVE SQUARE SUITE 1150</AddressLine1Txt>
+          <CityNm>LA JOLLA</CityNm>
+          <CountryCd>LA</CountryCd>
+        </ContributorForeignAddress>
         <TotalContributionsAmt>0</TotalContributionsAmt>
       </ContributorInformationGrp>
     </IRS990ScheduleB>

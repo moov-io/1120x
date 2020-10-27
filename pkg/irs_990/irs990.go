@@ -20,9 +20,9 @@ type IRS990 struct {
 	GrossReceiptsAmt               int                                 `xml:"GrossReceiptsAmt"`
 	GroupReturnForAffiliatesInd    bool                                `xml:"GroupReturnForAffiliatesInd"`
 	AllAffiliatesIncludedInd       *AllAffiliatesIncludedInd           `xml:"AllAffiliatesIncludedInd,omitempty" json:",omitempty"`
-	GroupExemptionNum              GroupExemptionNum                   `xml:"GroupExemptionNum,omitempty" json:",omitempty"`
+	GroupExemptionNum              *GroupExemptionNum                  `xml:"GroupExemptionNum,omitempty" json:",omitempty"`
 	Organization501c3Ind           CheckboxType                        `xml:"Organization501c3Ind"`
-	Organization501cInd            Organization501cInd                 `xml:"Organization501cInd"`
+	Organization501cInd            *Organization501cInd                `xml:"Organization501cInd,omitempty" json:",omitempty"`
 	Organization4947a1NotPFInd     CheckboxType                        `xml:"Organization4947a1NotPFInd"`
 	Organization527Ind             CheckboxType                        `xml:"Organization527Ind"`
 	WebsiteAddressTxt              string                              `xml:"WebsiteAddressTxt,omitempty" json:",omitempty"`
@@ -31,7 +31,7 @@ type IRS990 struct {
 	TypeOfOrganizationAssocInd     CheckboxType                        `xml:"TypeOfOrganizationAssocInd,omitempty" json:",omitempty"`
 	TypeOfOrganizationOtherInd     CheckboxType                        `xml:"TypeOfOrganizationOtherInd,omitempty" json:",omitempty"`
 	OtherOrganizationDsc           string                              `xml:"OtherOrganizationDsc,omitempty" json:",omitempty"`
-	FormationYr                    YearType                            `xml:"FormationYr,omitempty" json:",omitempty"`
+	FormationYr                    *YearType                           `xml:"FormationYr,omitempty" json:",omitempty"`
 	LegalDomicileStateCd           StateType                           `xml:"LegalDomicileStateCd"`
 	LegalDomicileCountryCd         CountryType                         `xml:"LegalDomicileCountryCd"`
 	ActivityOrMissionDesc          string                              `xml:"ActivityOrMissionDesc"`
@@ -352,7 +352,7 @@ type IRS990 struct {
 	FederalGrantAuditRequiredInd   bool                                `xml:"FederalGrantAuditRequiredInd,omitempty" json:",omitempty"`
 	FederalGrantAuditPerformedInd  bool                                `xml:"FederalGrantAuditPerformedInd,omitempty" json:",omitempty"`
 	DocumentId                     IdType                              `xml:"documentId,attr"`
-	SoftwareId                     SoftwareIdType                      `xml:"softwareId,attr,omitempty" json:",omitempty"`
+	SoftwareId                     *SoftwareIdType                     `xml:"softwareId,attr,omitempty" json:",omitempty"`
 	SoftwareVersionNum             string                              `xml:"softwareVersionNum,attr,omitempty" json:",omitempty"`
 	DocumentName                   string                              `xml:"documentName,attr,omitempty" json:",omitempty"`
 	ReferenceDocumentId            IdListType                          `xml:"referenceDocumentId,attr,omitempty" json:",omitempty"`
@@ -374,9 +374,9 @@ type IRS990Type struct {
 	GrossReceiptsAmt               int                                 `xml:"GrossReceiptsAmt"`
 	GroupReturnForAffiliatesInd    bool                                `xml:"GroupReturnForAffiliatesInd"`
 	AllAffiliatesIncludedInd       *AllAffiliatesIncludedInd           `xml:"AllAffiliatesIncludedInd,omitempty" json:",omitempty"`
-	GroupExemptionNum              GroupExemptionNum                   `xml:"GroupExemptionNum,omitempty" json:",omitempty"`
+	GroupExemptionNum              *GroupExemptionNum                  `xml:"GroupExemptionNum,omitempty" json:",omitempty"`
 	Organization501c3Ind           CheckboxType                        `xml:"Organization501c3Ind"`
-	Organization501cInd            Organization501cInd                 `xml:"Organization501cInd"`
+	Organization501cInd            *Organization501cInd                `xml:"Organization501cInd,omitempty" json:",omitempty"`
 	Organization4947a1NotPFInd     CheckboxType                        `xml:"Organization4947a1NotPFInd"`
 	Organization527Ind             CheckboxType                        `xml:"Organization527Ind"`
 	WebsiteAddressTxt              string                              `xml:"WebsiteAddressTxt,omitempty" json:",omitempty"`
@@ -385,7 +385,7 @@ type IRS990Type struct {
 	TypeOfOrganizationAssocInd     CheckboxType                        `xml:"TypeOfOrganizationAssocInd,omitempty" json:",omitempty"`
 	TypeOfOrganizationOtherInd     CheckboxType                        `xml:"TypeOfOrganizationOtherInd,omitempty" json:",omitempty"`
 	OtherOrganizationDsc           string                              `xml:"OtherOrganizationDsc,omitempty" json:",omitempty"`
-	FormationYr                    YearType                            `xml:"FormationYr,omitempty" json:",omitempty"`
+	FormationYr                    *YearType                           `xml:"FormationYr,omitempty" json:",omitempty"`
 	LegalDomicileStateCd           StateType                           `xml:"LegalDomicileStateCd"`
 	LegalDomicileCountryCd         CountryType                         `xml:"LegalDomicileCountryCd"`
 	ActivityOrMissionDesc          string                              `xml:"ActivityOrMissionDesc"`

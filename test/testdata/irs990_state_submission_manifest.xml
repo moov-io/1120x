@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StateSubmissionManifest xmlns="http://www.irs.gov/efile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.irs.gov/efile">
+  <SubmissionId>0000000000111abcdefg</SubmissionId>
+  <EFIN>000001</EFIN>
+  <TaxYr>0001</TaxYr>
+  <GovernmentCd>IRS</GovernmentCd>
+  <StateSubmissionTyp>IRS</StateSubmissionTyp>
+  <SubmissionCategoryCd>CORP</SubmissionCategoryCd>
+  <FederalEIN></FederalEIN>
+  <BusinessNameControlTxt>1234</BusinessNameControlTxt>
+  <PrimarySSN>123456789</PrimarySSN>
+  <PrimaryNameControlTxt>IRS</PrimaryNameControlTxt>
+  <SpouseSSN>123456789</SpouseSSN>
+  <SpouseNameControlTxt>IRS</SpouseNameControlTxt>
+  <TempId></TempId>
+
+</StateSubmissionManifest>

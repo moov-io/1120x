@@ -17,7 +17,7 @@ func (r Return) Validate() error {
 	return utils.Validate(&r)
 }
 
-func (r Return) Init() error {
+func (r *Return) Init() error {
 	r.Xmlns = "http://www.irs.gov/efile"
 	return nil
 }
@@ -59,24 +59,24 @@ type ReturnHeaderType struct {
 	ReturnTs                    TimestampType      `xml:"ReturnTs"`
 	TaxPeriodEndDt              DateType           `xml:"TaxPeriodEndDt"`
 	DisasterReliefTxt           string             `xml:"DisasterReliefTxt,omitempty" json:",omitempty"`
-	ISPNum                      ISPType            `xml:"ISPNum,omitempty" json:",omitempty"`
+	ISPNum                      *ISPType           `xml:"ISPNum,omitempty" json:",omitempty"`
 	PreparerFirmGrp             *PreparerFirmGrp   `xml:"PreparerFirmGrp,omitempty" json:",omitempty"`
 	SoftwareId                  SoftwareIdType     `xml:"SoftwareId"`
 	SoftwareVersionNum          string             `xml:"SoftwareVersionNum,omitempty" json:",omitempty"`
 	MultSoftwarePackagesUsedInd bool               `xml:"MultSoftwarePackagesUsedInd"`
 	OriginatorGrp               OriginatorGrp      `xml:"OriginatorGrp"`
-	PINEnteredByCd              PINEnteredByCd     `xml:"PINEnteredByCd,omitempty" json:",omitempty"`
-	SignatureOptionCd           SignatureOptionCd  `xml:"SignatureOptionCd,omitempty" json:",omitempty"`
+	PINEnteredByCd              *PINEnteredByCd    `xml:"PINEnteredByCd,omitempty" json:",omitempty"`
+	SignatureOptionCd           *SignatureOptionCd `xml:"SignatureOptionCd,omitempty" json:",omitempty"`
 	ReturnTypeCd                ReturnTypeCd       `xml:"ReturnTypeCd"`
 	TaxPeriodBeginDt            DateType           `xml:"TaxPeriodBeginDt"`
 	Filer                       Filer              `xml:"Filer"`
 	BusinessOfficerGrp          BusinessOfficerGrp `xml:"BusinessOfficerGrp"`
 	PreparerPersonGrp           *PreparerPersonGrp `xml:"PreparerPersonGrp,omitempty" json:",omitempty"`
 	IPAddress                   *IPAddressType     `xml:"IPAddress,omitempty" json:",omitempty"`
-	IPDt                        DateType           `xml:"IPDt,omitempty" json:",omitempty"`
-	IPTm                        TimeType           `xml:"IPTm,omitempty" json:",omitempty"`
-	IPTimezoneCd                TimezoneType       `xml:"IPTimezoneCd,omitempty" json:",omitempty"`
-	DeviceId                    DeviceIdType       `xml:"DeviceId,omitempty" json:",omitempty"`
+	IPDt                        *DateType          `xml:"IPDt,omitempty" json:",omitempty"`
+	IPTm                        *TimeType          `xml:"IPTm,omitempty" json:",omitempty"`
+	IPTimezoneCd                *TimezoneType      `xml:"IPTimezoneCd,omitempty" json:",omitempty"`
+	DeviceId                    *DeviceIdType      `xml:"DeviceId,omitempty" json:",omitempty"`
 	TaxYr                       YearType           `xml:"TaxYr"`
 	BinaryAttachmentCnt         int                `xml:"binaryAttachmentCnt,attr"`
 }

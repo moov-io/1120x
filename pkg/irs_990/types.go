@@ -34,10 +34,6 @@ func (r AllStatesCd) Validate() error {
 type AlphaNumericAndParenthesesType string
 
 func (r AlphaNumericAndParenthesesType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r AlphaNumericAndParenthesesType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Za-z0-9\(\)]*`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("AlphaNumericAndParenthesesType is invalid")
@@ -49,10 +45,6 @@ func (r AlphaNumericAndParenthesesType) IsValid() error {
 type AlphaNumericType string
 
 func (r AlphaNumericType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r AlphaNumericType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Za-z0-9]*`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("AlphaNumericType is invalid")
@@ -64,10 +56,6 @@ func (r AlphaNumericType) IsValid() error {
 type BankAccountNumberType string
 
 func (r BankAccountNumberType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r BankAccountNumberType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Za-z0-9\-]+`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("BankAccountNumberType is invalid")
@@ -79,14 +67,10 @@ func (r BankAccountNumberType) IsValid() error {
 type BankAccountType string
 
 func (r BankAccountType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r BankAccountType) IsValid() error {
 	for _, vv := range []string{
 		"1", "2",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -97,10 +81,6 @@ func (r BankAccountType) IsValid() error {
 type BondReferenceCd string
 
 func (r BondReferenceCd) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r BondReferenceCd) IsValid() error {
 	reg := regexp.MustCompile(`[A-D]`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("BondReferenceCd is invalid")
@@ -112,10 +92,6 @@ func (r BondReferenceCd) IsValid() error {
 type BusinessCd string
 
 func (r BusinessCd) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r BusinessCd) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{6}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("BusinessCd is invalid")
@@ -127,10 +103,6 @@ func (r BusinessCd) IsValid() error {
 type BusinessNameControlType string
 
 func (r BusinessNameControlType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r BusinessNameControlType) IsValid() error {
 	reg := regexp.MustCompile(`([A-Z0-9\-]|&){1,4}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("BusinessNameControlType is invalid")
@@ -142,10 +114,6 @@ func (r BusinessNameControlType) IsValid() error {
 type BusinessNameLine1Type string
 
 func (r BusinessNameLine1Type) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r BusinessNameLine1Type) IsValid() error {
 	reg := regexp.MustCompile(`(([A-Za-z0-9#\-\(\)]|&|') ?)*([A-Za-z0-9#\-\(\)]|&|')`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("BusinessNameLine1Type is invalid")
@@ -157,10 +125,6 @@ func (r BusinessNameLine1Type) IsValid() error {
 type BusinessNameLine2Type string
 
 func (r BusinessNameLine2Type) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r BusinessNameLine2Type) IsValid() error {
 	reg := regexp.MustCompile(`(([A-Za-z0-9#/%\-\(\)]|&|') ?)*([A-Za-z0-9#/%\-\(\)]|&|')`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("BusinessNameLine2Type is invalid")
@@ -172,10 +136,6 @@ func (r BusinessNameLine2Type) IsValid() error {
 type CHNAConductedYr int
 
 func (r CHNAConductedYr) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r CHNAConductedYr) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{2}`)
 	if !reg.MatchString(fmt.Sprint(r)) {
 		return errors.New("CHNAConductedYr is invalid")
@@ -187,10 +147,6 @@ func (r CHNAConductedYr) IsValid() error {
 type CUSIPNumberType string
 
 func (r CUSIPNumberType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r CUSIPNumberType) IsValid() error {
 	if len(r) > 9 {
 		return errors.New("CUSIPNumberType is invalid")
 	}
@@ -201,10 +157,6 @@ func (r CUSIPNumberType) IsValid() error {
 type CheckDigitType string
 
 func (r CheckDigitType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r CheckDigitType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Z]{2}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("CheckDigitType is invalid")
@@ -215,18 +167,10 @@ func (r CheckDigitType) IsValid() error {
 // May be one of X
 type CheckboxType string
 
-func (r CheckboxType) Validate() error {
-	return utils.Validate(&r)
-}
-
 // Must match the pattern ([A-Za-z] ?)*[A-Za-z]
 type CityType string
 
 func (r CityType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r CityType) IsValid() error {
 	reg := regexp.MustCompile(`([A-Za-z] ?)*[A-Za-z]`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("CityType is invalid")
@@ -238,14 +182,10 @@ func (r CityType) IsValid() error {
 type ConsortiumType string
 
 func (r ConsortiumType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ConsortiumType) IsValid() error {
 	for _, vv := range []string{
 		"English Free-File", "Spanish Free-File", "Free Fillable Forms", "Free File VITA",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -265,10 +205,6 @@ func (r ConsortiumType) IsValid() error {
 type CountryType string
 
 func (r CountryType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r CountryType) IsValid() error {
 	for _, vv := range []string{
 		"AF", "AX", "AL", "AG", "AQ", "AN", "AO", "AV", "AY", "AC", "AR", "AM", "AA", "AT", "AS", "AU", "AJ", "BF",
 		"BA", "FQ", "BG", "BB", "BO", "BE", "BH", "BN", "BD", "BT", "BL", "BK", "BC", "BV", "BR", "IO", "VI", "BX",
@@ -286,7 +222,7 @@ func (r CountryType) IsValid() error {
 		"TL", "TN", "TD", "TS", "TU", "TX", "TK", "TV", "UG", "UP", "AE", "UK", "UY", "UZ", "NH", "VE", "VM", "VQ",
 		"WQ", "WF", "WI", "YM", "ZA", "ZI",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -325,14 +261,10 @@ func (r DecimalType) Validate() error {
 type DepreciationConventionCodeType string
 
 func (r DepreciationConventionCodeType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r DepreciationConventionCodeType) IsValid() error {
 	for _, vv := range []string{
 		"HY", "MQ", "MM", "S/L",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -343,14 +275,10 @@ func (r DepreciationConventionCodeType) IsValid() error {
 type DepreciationMethodCodeType string
 
 func (r DepreciationMethodCodeType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r DepreciationMethodCodeType) IsValid() error {
 	for _, vv := range []string{
 		"200 DB", "150 DB", "DB", "S/L", "Various",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -361,10 +289,6 @@ func (r DepreciationMethodCodeType) IsValid() error {
 type DeviceIdType string
 
 func (r DeviceIdType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r DeviceIdType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Fa-f0-9]{40}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("DeviceIdType is invalid")
@@ -390,10 +314,6 @@ func (r DocumentTypeCd) Validate() error {
 type EFINType string
 
 func (r EFINType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r EFINType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{6}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("EFINType is invalid")
@@ -405,10 +325,6 @@ func (r EFINType) IsValid() error {
 type EINType string
 
 func (r EINType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r EINType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{9}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("EINType is invalid")
@@ -420,10 +336,6 @@ func (r EINType) IsValid() error {
 type ETINType string
 
 func (r ETINType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ETINType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{5}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("ETINType is invalid")
@@ -436,16 +348,12 @@ func (r ETINType) IsValid() error {
 type FUTAStateCdType string
 
 func (r FUTAStateCdType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r FUTAStateCdType) IsValid() error {
 	for _, vv := range []string{
 		"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY",
 		"LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH",
 		"OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "VI", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -456,10 +364,6 @@ func (r FUTAStateCdType) IsValid() error {
 type ForeignEntityReferenceIdNum string
 
 func (r ForeignEntityReferenceIdNum) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ForeignEntityReferenceIdNum) IsValid() error {
 	if len(r) > 1 {
 		return errors.New("ForeignEntityReferenceIdNum is invalid")
 	}
@@ -470,10 +374,6 @@ func (r ForeignEntityReferenceIdNum) IsValid() error {
 type ForeignPhoneNumberType string
 
 func (r ForeignPhoneNumberType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ForeignPhoneNumberType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{1,30}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("ForeignPhoneNumberType is invalid")
@@ -496,10 +396,6 @@ func (r ForeignRegulatedInvestmtCompCdType) Validate() error {
 type GovernmentCodeType string
 
 func (r GovernmentCodeType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r GovernmentCodeType) IsValid() error {
 	for _, vv := range []string{
 		"IRS", "ALST", "AKST", "AZST", "ARST", "CAST", "CNCT", "COCT", "COST", "CTST", "DECT", "DEST", "DCST", "FLST",
 		"GAST", "HIST", "IDST", "ILST", "INST", "IAST", "KACT", "KSST", "KYST", "LAST", "LECT", "LXCT", "MEST", "MDST",
@@ -507,7 +403,7 @@ func (r GovernmentCodeType) IsValid() error {
 		"OCCT", "OHST", "OKST", "ORCT", "ORST", "PAST", "RIST", "SCST", "SDST", "SLCT", "TNST", "TOCT", "TXST", "UTST",
 		"VTST", "VAST", "WAST", "WVST", "WIST", "WYST", "NYCT", "PHCT",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -518,10 +414,6 @@ func (r GovernmentCodeType) IsValid() error {
 type GroupExemptionNum string
 
 func (r GroupExemptionNum) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r GroupExemptionNum) IsValid() error {
 	reg := regexp.MustCompile(`\d{4}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("GroupExemptionNum is invalid")
@@ -533,10 +425,6 @@ func (r GroupExemptionNum) IsValid() error {
 type IPv4Type string
 
 func (r IPv4Type) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r IPv4Type) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("IPv4Type is invalid")
@@ -549,10 +437,6 @@ func (r IPv4Type) IsValid() error {
 type IPv6Type string
 
 func (r IPv6Type) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r IPv6Type) IsValid() error {
 	reg := regexp.MustCompile(`[0-9A-F]{1,4}:[0-9A-F]{1,4}:[0-9A-F]{1,4}:[0-9A-F]{1,4}:[0-9A-F]{1,4}:[0-9A-F]{1,4}:[0-9A-F]{1,4}:[0-9A-F]{1,4}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("IPv6Type is invalid")
@@ -564,10 +448,6 @@ func (r IPv6Type) IsValid() error {
 type IRSServiceCenterType string
 
 func (r IRSServiceCenterType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r IRSServiceCenterType) IsValid() error {
 	reg := regexp.MustCompile(`efile|.*`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("IRSServiceCenterType is invalid")
@@ -579,10 +459,6 @@ func (r IRSServiceCenterType) IsValid() error {
 type ISPType string
 
 func (r ISPType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ISPType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Z0-9]{6}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("ISPType is invalid")
@@ -594,10 +470,6 @@ func (r ISPType) IsValid() error {
 type IdType string
 
 func (r IdType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r IdType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Za-z0-9:\.\-]{1,30}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("IdType is invalid")
@@ -609,10 +481,6 @@ func (r IdType) IsValid() error {
 type ImplementationStrategyAdptYr int
 
 func (r ImplementationStrategyAdptYr) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ImplementationStrategyAdptYr) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{2}`)
 	if !reg.MatchString(fmt.Sprint(r)) {
 		return errors.New("ImplementationStrategyAdptYr is invalid")
@@ -624,10 +492,6 @@ func (r ImplementationStrategyAdptYr) IsValid() error {
 type InCareOfNameType string
 
 func (r InCareOfNameType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r InCareOfNameType) IsValid() error {
 	reg := regexp.MustCompile(`(% )(([A-Za-z0-9#/%\-\(\)]|&|') ?)*([A-Za-z0-9#/%\-\(\)]|&|')`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("InCareOfNameType is invalid")
@@ -639,10 +503,6 @@ func (r InCareOfNameType) IsValid() error {
 type IntegerNNType int
 
 func (r IntegerNNType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r IntegerNNType) IsValid() error {
 	if r < 0 {
 		return errors.New("IntegerNNType is invalid")
 	}
@@ -660,14 +520,10 @@ func (r IntegerType) Validate() error {
 type MethodOfAccountingType string
 
 func (r MethodOfAccountingType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r MethodOfAccountingType) IsValid() error {
 	for _, vv := range []string{
 		"cash", "accrual", "hybrid",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -678,14 +534,10 @@ func (r MethodOfAccountingType) IsValid() error {
 type MethodValuationCd string
 
 func (r MethodValuationCd) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r MethodValuationCd) IsValid() error {
 	for _, vv := range []string{
 		"C", "F",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -726,10 +578,6 @@ func (r MonthType) MarshalText() ([]byte, error) {
 type NameLine1Type string
 
 func (r NameLine1Type) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r NameLine1Type) IsValid() error {
 	reg := regexp.MustCompile(`[A-Za-z]( |<)?(([A-Za-z#\-]|&)( |<)?)*([A-Za-z#\-]|&)`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("NameLine1Type is invalid")
@@ -741,10 +589,6 @@ func (r NameLine1Type) IsValid() error {
 type NumericType string
 
 func (r NumericType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r NumericType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]*`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("NumericType is invalid")
@@ -756,10 +600,6 @@ func (r NumericType) IsValid() error {
 type Organization501cTypeTxt string
 
 func (r Organization501cTypeTxt) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r Organization501cTypeTxt) IsValid() error {
 	reg := regexp.MustCompile(`[2-9]|1[0-9]|2[02-7]`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("Organization501cTypeTxt is invalid")
@@ -771,14 +611,10 @@ func (r Organization501cTypeTxt) IsValid() error {
 type OrganizationTypeCd string
 
 func (r OrganizationTypeCd) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r OrganizationTypeCd) IsValid() error {
 	for _, vv := range []string{
 		"1", "2", "3", "4", "5", "6", "7", "8", "9",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -789,14 +625,10 @@ func (r OrganizationTypeCd) IsValid() error {
 type OriginatorType string
 
 func (r OriginatorType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r OriginatorType) IsValid() error {
 	for _, vv := range []string{
 		"ERO", "OnlineFiler", "ReportingAgent", "IRSAgent", "FinancialAgent", "LargeTaxpayer",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -807,14 +639,10 @@ func (r OriginatorType) IsValid() error {
 type PINCodeType string
 
 func (r PINCodeType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PINCodeType) IsValid() error {
 	for _, vv := range []string{
 		"Practitioner", "Self-Select Practitioner", "Self-Select On-Line",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -825,14 +653,10 @@ func (r PINCodeType) IsValid() error {
 type PINEnteredByCd string
 
 func (r PINEnteredByCd) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PINEnteredByCd) IsValid() error {
 	for _, vv := range []string{
 		"Taxpayer", "ERO",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -843,14 +667,10 @@ func (r PINEnteredByCd) IsValid() error {
 type PINEnteredByType string
 
 func (r PINEnteredByType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PINEnteredByType) IsValid() error {
 	for _, vv := range []string{
 		"Taxpayer", "ERO",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -861,10 +681,6 @@ func (r PINEnteredByType) IsValid() error {
 type PINType string
 
 func (r PINType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PINType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{5}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PINType is invalid")
@@ -876,10 +692,6 @@ func (r PINType) IsValid() error {
 type PTINType string
 
 func (r PTINType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PTINType) IsValid() error {
 	reg := regexp.MustCompile(`P[0-9]{8}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PTINType is invalid")
@@ -898,10 +710,6 @@ func (r PartnersPageFilingType) Validate() error {
 type PersonFirstNameType string
 
 func (r PersonFirstNameType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PersonFirstNameType) IsValid() error {
 	reg := regexp.MustCompile(`([A-Za-z\-] ?)*[A-Za-z\-]`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PersonFirstNameType is invalid")
@@ -913,10 +721,6 @@ func (r PersonFirstNameType) IsValid() error {
 type PersonLastNameType string
 
 func (r PersonLastNameType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PersonLastNameType) IsValid() error {
 	reg := regexp.MustCompile(`([A-Za-z\-] ?)*[A-Za-z\-]`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PersonLastNameType is invalid")
@@ -928,10 +732,6 @@ func (r PersonLastNameType) IsValid() error {
 type PersonNameControlType string
 
 func (r PersonNameControlType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PersonNameControlType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Z][A-Z\- ]{0,3}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PersonNameControlType is invalid")
@@ -943,10 +743,6 @@ func (r PersonNameControlType) IsValid() error {
 type PersonNameType string
 
 func (r PersonNameType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PersonNameType) IsValid() error {
 	reg := regexp.MustCompile(`([A-Za-z0-9'\-] ?)*[A-Za-z0-9'\-]`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PersonNameType is invalid")
@@ -958,10 +754,6 @@ func (r PersonNameType) IsValid() error {
 type PersonTitleType string
 
 func (r PersonTitleType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PersonTitleType) IsValid() error {
 	reg := regexp.MustCompile(`([!-~] ?)*[!-~]`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PersonTitleType is invalid")
@@ -973,10 +765,6 @@ func (r PersonTitleType) IsValid() error {
 type PhoneNumberType string
 
 func (r PhoneNumberType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r PhoneNumberType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{10}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PhoneNumberType is invalid")
@@ -1009,10 +797,6 @@ func (r RatioType) Validate() error {
 type RegistrationNumType string
 
 func (r RegistrationNumType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r RegistrationNumType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Z0-9]{1,20}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("RegistrationNumType is invalid")
@@ -1024,14 +808,10 @@ func (r RegistrationNumType) IsValid() error {
 type ReturnTypeCd string
 
 func (r ReturnTypeCd) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ReturnTypeCd) IsValid() error {
 	for _, vv := range []string{
 		"990", "990EZ", "990PF",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -1042,10 +822,6 @@ func (r ReturnTypeCd) IsValid() error {
 type RoutingTransitNumberType string
 
 func (r RoutingTransitNumberType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r RoutingTransitNumberType) IsValid() error {
 	reg := regexp.MustCompile(`(01|02|03|04|05|06|07|08|09|10|11|12|21|22|23|24|25|26|27|28|29|30|31|32)[0-9]{7}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("RoutingTransitNumberType is invalid")
@@ -1057,10 +833,6 @@ func (r RoutingTransitNumberType) IsValid() error {
 type SSNType string
 
 func (r SSNType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r SSNType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{9}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("SSNType is invalid")
@@ -1072,10 +844,6 @@ func (r SSNType) IsValid() error {
 type STINType string
 
 func (r STINType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r STINType) IsValid() error {
 	reg := regexp.MustCompile(`S[0-9]{8}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("STINType is invalid")
@@ -1094,10 +862,6 @@ func (r SignatureOptionCd) Validate() error {
 type SignatureType string
 
 func (r SignatureType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r SignatureType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{10}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("SignatureType is invalid")
@@ -1109,7 +873,11 @@ func (r SignatureType) IsValid() error {
 type SoftwareIdType string
 
 func (r SoftwareIdType) Validate() error {
-	return utils.Validate(&r)
+	reg := regexp.MustCompile(`[0-9]{8}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("SoftwareIdType is invalid")
+	}
+	return nil
 }
 
 // May be one of
@@ -1119,17 +887,13 @@ func (r SoftwareIdType) Validate() error {
 type StateType string
 
 func (r StateType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r StateType) IsValid() error {
 	for _, vv := range []string{
 		"AL", "AK", "AS", "AZ", "AR", "CA", "CO", "MP", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL",
 		"IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
 		"NM", "NY", "NC", "ND", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "VI", "UT", "VT",
 		"VA", "WA", "WV", "WI", "WY", "AA", "AE", "AP",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -1140,10 +904,6 @@ func (r StateType) IsValid() error {
 type StreetAddressType string
 
 func (r StreetAddressType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r StreetAddressType) IsValid() error {
 	reg := regexp.MustCompile(`[A-Za-z0-9]( ?[A-Za-z0-9\-/])*`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("StreetAddressType is invalid")
@@ -1169,10 +929,6 @@ func (r StringVARIOUSType) Validate() error {
 type TaxShelterRegistrationType string
 
 func (r TaxShelterRegistrationType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r TaxShelterRegistrationType) IsValid() error {
 	reg := regexp.MustCompile(`(MA[0-9]{7})|([0-9]{11})`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("TaxShelterRegistrationType is invalid")
@@ -1184,10 +940,6 @@ func (r TaxShelterRegistrationType) IsValid() error {
 type TaxYearEndMonthDtType string
 
 func (r TaxYearEndMonthDtType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r TaxYearEndMonthDtType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9][0-9](01|02|03|04|05|06|07|08|09|10|11|12)`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("TaxYearEndMonthDtType is invalid")
@@ -1234,14 +986,10 @@ func (t TimestampType) MarshalText() ([]byte, error) {
 type TimezoneType string
 
 func (r TimezoneType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r TimezoneType) IsValid() error {
 	for _, vv := range []string{
 		"US", "ES", "ED", "CS", "CD", "MS", "MD", "PS", "PD", "AS", "AD", "HS", "HD",
 	} {
-		if reflect.DeepEqual(r, vv) {
+		if reflect.DeepEqual(string(r), vv) {
 			return nil
 		}
 	}
@@ -1252,10 +1000,6 @@ func (r TimezoneType) IsValid() error {
 type VINType string
 
 func (r VINType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r VINType) IsValid() error {
 	reg := regexp.MustCompile(`[A-HJ-NPR-Z0-9]{1,17}|[A-HJ-NPR-Z0-9]{19}`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("VINType is invalid")
@@ -1295,10 +1039,6 @@ func (r YearType) MarshalText() ([]byte, error) {
 type ZIPCodeType string
 
 func (r ZIPCodeType) Validate() error {
-	return utils.Validate(&r)
-}
-
-func (r ZIPCodeType) IsValid() error {
 	reg := regexp.MustCompile(`[0-9]{5}(([0-9]{4})|([0-9]{7}))?`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("ZIPCodeType is invalid")
@@ -1510,4 +1250,116 @@ func (t xsdTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	}
 	m, err := t.MarshalText()
 	return xml.Attr{Name: name, Value: string(m)}, err
+}
+
+// Must match the pattern [0-9]{13}[a-z0-9]{7}
+type SubmissionIdType string
+
+func (r SubmissionIdType) Validate() error {
+	reg := regexp.MustCompile(`[0-9]{13}[a-z0-9]{7}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("SubmissionIdType is invalid")
+	}
+	return nil
+}
+
+type ExtndGovernmentCdType string
+
+// Must match the pattern [A-Za-z0-9\-]+
+type StateSubmissionTyp string
+
+func (r StateSubmissionTyp) Validate() error {
+	reg := regexp.MustCompile(`[A-Za-z0-9\-]+`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("StateSubmissionTyp is invalid")
+	}
+	return nil
+}
+
+// Must match the pattern [A-Za-z0-9\-]+
+type SubmissionTyp string
+
+func (r SubmissionTyp) Validate() error {
+	reg := regexp.MustCompile(`[A-Za-z0-9\-]+`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("SubmissionTyp is invalid")
+	}
+	return nil
+}
+
+// May be no more than 9 items long
+type TempIdType string
+
+func (r TempIdType) Validate() error {
+	if len(r) > 9 {
+		return errors.New("TempIdType is invalid")
+	}
+	return nil
+}
+
+type ExtndSubmissionCategoryCdType string
+
+// May be one of Payment Request Received
+type PaymentRequestRcvdCd string
+
+// Must match the pattern 0x[0-9A-Fa-f]{1,8}
+type EmbeddedCRC32Num string
+
+func (r EmbeddedCRC32Num) Validate() error {
+	reg := regexp.MustCompile(`0x[0-9A-Fa-f]{1,8}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("EmbeddedCRC32Num is invalid")
+	}
+	return nil
+}
+
+// Must match the pattern 0x[0-9A-Fa-f]{1,8}
+type ComputedCRC32Num string
+
+func (r ComputedCRC32Num) Validate() error {
+	reg := regexp.MustCompile(`0x[0-9A-Fa-f]{1,8}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("ComputedCRC32Num is invalid")
+	}
+	return nil
+}
+
+// May be one of 56, 720, 940, 940PR, 941, 941PR, 941SS, 943, 943PR, 944, 945, 990, 990EZ, 990N, 990PF, 1040, 1040A, 1040EZ, 1040PR, 1040SS, 1041, 1120, 1120F, 1120POL, 1120S, 1065, 1065B, 2290, 2350, 4868, 7004, 8849, 8868, 9465
+type FederalSubmissionTypeCd string
+
+func (r FederalSubmissionTypeCd) Validate() error {
+	for _, vv := range []string{
+		"56", "720", "940", "940PR", "941", "941PR", "941SS", "943", "943PR", "944", "945", "990", "990EZ",
+		"990N", "990PF", "1040", "1040A", "1040EZ", "1040PR", "1040SS", "1041", "1120", "1120F", "1120POL",
+		"1120S", "1065", "1065B", "2290", "2350", "4868", "7004", "8849", "8868", "9465",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return errors.New("FederalSubmissionTypeCd is invalid")
+}
+
+// May be one of CORP, CORPEP, EMPL, EO, ESTRST, ESTRSTEP, ETEC, IND, INDEP, PART, PARTEP
+type SubmissionCategoryType string
+
+func (r SubmissionCategoryType) Validate() error {
+	for _, vv := range []string{
+		"CORP", " CORPEP", " EMPL", " EO", " ESTRST", " ESTRSTEP", " ETEC", " IND", " INDEP", " PART", " PARTEP",
+	} {
+		if reflect.DeepEqual(string(r), vv) {
+			return nil
+		}
+	}
+	return errors.New("SubmissionCategoryType is invalid")
+}
+
+// May be no more than 9 items long
+type FederalEIN string
+
+func (r FederalEIN) Validate() error {
+	if len(r) > 9 {
+		return errors.New("FederalEIN is invalid")
+	}
+	return nil
 }

@@ -17,6 +17,7 @@ var (
 	ErrFailedCreateTaxReturn = errors.New("failed to create tax return")
 	// ErrEmptyXML is given when hasn't xml document
 	ErrEmptyXML = errors.New("hasn't xml document")
+	debug       = false
 )
 
 var (
@@ -24,20 +25,6 @@ var (
 	DefaultValidateFunction = "Validate"
 	IsValidateFunction      = "IsValid"
 )
-
-func validateCallback(r interface{}) error {
-	method := reflect.ValueOf(r).MethodByName(IsValidateFunction)
-	if method.IsValid() {
-		response := method.Call(nil)
-		if len(response) > 0 {
-			err := response[0]
-			if !err.IsNil() {
-				return err.Interface().(error)
-			}
-		}
-	}
-	return nil
-}
 
 func validateCallbackByValue(data reflect.Value) error {
 	method := data.MethodByName(DefaultValidateFunction)
@@ -55,15 +42,17 @@ func validateCallbackByValue(data reflect.Value) error {
 
 // to validate interface
 func Validate(r interface{}) error {
-	err := validateCallback(r)
-	if err != nil {
-		return err
+	var err error
+	if debug {
+		fmt.Println(reflect.ValueOf(r).Type())
+		fmt.Println("==========")
 	}
-
 	fields := reflect.ValueOf(r).Elem()
 	for i := 0; i < fields.NumField(); i++ {
-		fmt.Println(fields.Type().Field(i).Name)
 		fieldData := fields.Field(i)
+		if debug {
+			fmt.Println(fields.Type().Field(i).Name)
+		}
 		kind := fieldData.Kind()
 		if kind == reflect.Slice {
 			for i := 0; i < fieldData.Len(); i++ {
@@ -75,6 +64,13 @@ func Validate(r interface{}) error {
 		} else if kind == reflect.Map {
 			for _, key := range fieldData.MapKeys() {
 				err = validateCallbackByValue(fieldData.MapIndex(key))
+				if err != nil {
+					return err
+				}
+			}
+		} else if kind == reflect.Ptr {
+			if fieldData.Pointer() != 0 {
+				err = validateCallbackByValue(fieldData)
 				if err != nil {
 					return err
 				}
