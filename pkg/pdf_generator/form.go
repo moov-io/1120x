@@ -2,10 +2,11 @@
 // Use of this source code is governed by an Apache License
 // license that can be found in the LICENSE file.
 
-package xmls
+package pdf_generator
 
 import (
 	"encoding/xml"
+	"github.com/moov-io/1120x/pkg/utils"
 	"regexp"
 )
 
@@ -86,7 +87,7 @@ func (r *FormData) String() string {
 	if err != nil {
 		return ""
 	}
-	buf, err = formatXML(buf)
+	buf, err = utils.FormatXML(buf)
 	if err != nil {
 		return ""
 	}
@@ -99,7 +100,7 @@ type FormDataCreator struct {
 	SubmissionYear    int
 	SubmissionType    string
 	Header            interface{}
-	Data              []ReturnInspectData
+	Data              []utils.ReturnInspectData
 }
 
 func (r *FormDataCreator) GenerateXMLDocument(params *XMLParameters) []XMLDocument {

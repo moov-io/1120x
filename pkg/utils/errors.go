@@ -21,6 +21,26 @@ var (
 )
 
 var (
+	IRS990          = "990"
+	IRS990ScheduleA = "990ScheduleA"
+	IRS990ScheduleB = "990ScheduleB"
+	IRS990ScheduleC = "990ScheduleC"
+	IRS990ScheduleD = "990ScheduleD"
+	IRS990ScheduleE = "990ScheduleE"
+	IRS990ScheduleF = "990ScheduleF"
+	IRS990ScheduleG = "990ScheduleG"
+	IRS990ScheduleH = "990ScheduleH"
+	IRS990ScheduleI = "990ScheduleI"
+	IRS990ScheduleJ = "990ScheduleJ"
+	IRS990ScheduleK = "990ScheduleK"
+	IRS990ScheduleL = "990ScheduleL"
+	IRS990ScheduleM = "990ScheduleM"
+	IRS990ScheduleN = "990ScheduleN"
+	IRS990ScheduleO = "990ScheduleO"
+	IRS990ScheduleR = "990ScheduleR"
+)
+
+var (
 	IRS990ReturnTypeCode    = "990"
 	DefaultValidateFunction = "Validate"
 	IsValidateFunction      = "IsValid"

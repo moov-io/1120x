@@ -8,10 +8,10 @@ The project is irs sub project to support IRS Modernized e-File Forms 1120, 1120
 
     ManifestXML is a manifest.xml file, which provides information about the Submission.
 
-- Document
+- Return
 
-    Document is the submission.xml file with the submission data in XML format.<br/>
-    example : https://s3.amazonaws.com/irs-form-990/201541349349307794_public.xml
+    Return is return schema for irs forms.
+    example : Return990.xsd
 
 - Submission
 
@@ -20,24 +20,74 @@ The project is irs sub project to support IRS Modernized e-File Forms 1120, 1120
 
 ## Features
 
-### File
+### Irs e-file logic
 
-Main focus is to convert JSON file and XML file (include manifest.xml and submission.xml)
-So we should create structures for json and xml and implement validation logic, etc.
+1120x project is to get transmission (submission) file structures for internet filing (IFA) and application-to-application (A2A).
+Both channels use simple object access protocol (SOAP) with attachments.
+We can get envelope and attachments of SOAP message from JSON or XML input file using 1120x project.
+
+IrsTransmissionFile is interface for irs transmission file instance.
+there are 2 main functions to get data.
+- SOAPEnvelope
+- SOAPAttachment
+
+User can create SOAP message of return or state using 1120x package easily.
+
+
+Main focus of this project is to convert form JSON file and XML file to irs e-file structure (raw data of SOAP envelope and attachments).
+
+| Input      | Output     |
+|------------|------------|
+| JSON       | JSON       |
+| XML        | XML        |
+|            | Irs e-file |
+|            | SQL        |
+
+### Go Codes from XSD files
+We should get golang codes from xsd files that provided irs.
+There are many method to get go code from XSD, but perfect tool (application) for this don't exist. Because there are many problems about xml version, tags, etc.
+
+To get go code from XSD files, we can use xsdgen (https://godoc.org/aqwari.net/xml/cmd/xsdgen) and following steps.  <br/> 
+1. create a merged xsd file <br/>
+xsdgen don't support include tag, so should create a merged xsd file to import other xsd file instead of include tag.  <br/>
+2. remove repeated go structures <br/>
+any go structures can be repeated in generated code, so the structures need to be removed manually.
+3. change field value to pointer, add json tag <br/>
+if field have omitempty tag, we need to change pointer the field, add json tag of omitempty. 
+4. remove unnecessary xml namespace <br/>
 
 ### PDF
 
-The IRS publishes stylesheets that can be used to transform an XML document into HTML. Specifically, these XSLT (eXtensible Stylesheet Language Transformation) files are distributed each year by the IRS so that tax preparers can generate tools that submit tax filings in the proper format.
+Other feature of the package is to create pdf file from XML and XSD files.
 
-To generate pdf from stylesheets and document (submission.xml)
-
-1. Generate formatted xml with stylesheets and xml<br/>
-  (base library : https://github.com/jbowtie/ratago)<br/>
-  (example : https://github.com/betson/irs-efile-viewer)
-2. XML -> HTML -> PDF
+| Input      | Output     |
+|------------|------------|
+| XML        | PDF        |
 
 
-After implement main features, we can merge https://github.com/moov-io/irs and https://github.com/moov-io/1120x.
+### PDF Generator
+
+The IRS publishes stylesheets that can be used to transform XML document into HTML. 
+Specifically, these XSLT (eXtensible Stylesheet Language Transformation) files are distributed each year by the IRS so that tax preparers can generate tools that submit tax filings in the proper format.
+
+To generate pdf from stylesheets and input xml (return.xml)
+
+- XML -> HTML -> PDF<br/>
+  we don't create pdf for any return from input xml and stylesheets.<br/>
+  we should use html as temporary result.
+   
+XML -> HTML <br/>
+There are 2 methods to get html in 1120x package.  <br/>
+
+- To use github.com/jbowtie/ratago/xslt <br/>
+the method used go package, but there is a problem that XSD parameters are invalid sometimes. <br/> 
+- To use http://xmlsoft.org/XSLT/xsltproc.html  <br/>
+the method should use application file (xsltproc), but above problem is fixed.
+
+HTML -> PDF <br/>
+Used go-wkhtmltopdf to convert pdf file. (based wkhtmltopdf)
+
+After implement main features, we should merge https://github.com/moov-io/irs and https://github.com/moov-io/1120x.
 
 ## Getting Help
 
