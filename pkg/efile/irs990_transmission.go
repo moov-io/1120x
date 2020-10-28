@@ -17,7 +17,7 @@ import (
 
 type Irs990TransmissionFile struct {
 	Soap         Envelope
-	Attachments  []IrsReturnFile
+	Attachments  []utils.IrsReturnFile
 	SubmissionId string
 }
 

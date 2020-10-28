@@ -17,14 +17,13 @@ import (
 	"github.com/jbowtie/gokogiri/xml"
 	"github.com/jbowtie/ratago/xslt"
 	"github.com/moov-io/1120x/pkg/utils"
-	"github.com/moov-io/1120x/pkg/xmls"
 )
 
 // Html generator form xml
 type PdfGenerator interface {
 	GenerateHtml() ([]HtmlData, error)
 	GeneratePDF([]HtmlData) ([]PdfData, error)
-	GetDocuments() []xmls.XMLDocument
+	GetDocuments() []XMLDocument
 }
 
 type HtmlData []byte
@@ -45,12 +44,12 @@ var (
 )
 
 type htmlGenerator struct {
-	Documents []xmls.XMLDocument
+	Documents []XMLDocument
 	Mode      string
 }
 
 // GetHtmlGenerator returns instance of html generator
-func GetHtmlGenerator(r xmls.ReturnFormData, params *xmls.XMLParameters, mode string) (PdfGenerator, error) {
+func GetHtmlGenerator(r ReturnFormData, params *XMLParameters, mode string) (PdfGenerator, error) {
 	xmlArray := r.GenerateXMLDocument(params)
 	if len(xmlArray) == 0 {
 		return nil, utils.ErrEmptyXML
@@ -62,7 +61,7 @@ func GetHtmlGenerator(r xmls.ReturnFormData, params *xmls.XMLParameters, mode st
 }
 
 // GetDocuments returns documents
-func (g *htmlGenerator) GetDocuments() []xmls.XMLDocument {
+func (g *htmlGenerator) GetDocuments() []XMLDocument {
 	return g.Documents
 }
 
@@ -123,7 +122,7 @@ func getXSLFileName(formCode string) string {
 	return "IRS" + formCode + ".xsl"
 }
 
-func getStylesheetFile(document xmls.XMLDocument) (*string, error) {
+func getStylesheetFile(document XMLDocument) (*string, error) {
 	filePath := filepath.Join(pathStylesheets, strconv.Itoa(document.Year), getXSLFileName(document.Type))
 	_, err := os.Stat(filePath)
 	if os.IsNotExist(err) {
@@ -132,7 +131,7 @@ func getStylesheetFile(document xmls.XMLDocument) (*string, error) {
 	return &filePath, nil
 }
 
-func generateXmlFile(document xmls.XMLDocument) (*os.File, error) {
+func generateXmlFile(document XMLDocument) (*os.File, error) {
 	tmpFile, err := ioutil.TempFile(tempDir, xmlNamePattern)
 	if err != nil {
 		return nil, err
@@ -167,7 +166,7 @@ func processXslt(xslFile string, xmlFile string) ([]byte, error) {
 }
 
 // using github.com/jbowtie/ratago/xslt
-func runHtmlConvert(document xmls.XMLDocument) (HtmlData, error) {
+func runHtmlConvert(document XMLDocument) (HtmlData, error) {
 	path, err := getStylesheetFile(document)
 	if err != nil {
 		return nil, err
@@ -176,7 +175,7 @@ func runHtmlConvert(document xmls.XMLDocument) (HtmlData, error) {
 	return runHtmlConvertWithOptions(*path, document, options)
 }
 
-func runHtmlConvertWithOptions(xslFile string, inputBuf xmls.XMLDocument, options xslt.StylesheetOptions) (HtmlData, error) {
+func runHtmlConvertWithOptions(xslFile string, inputBuf XMLDocument, options xslt.StylesheetOptions) (HtmlData, error) {
 	style, err := xml.ReadFile(xslFile, xml.StrictParseOption|xml.XML_PARSE_XINCLUDE)
 	if err != nil {
 		return nil, err

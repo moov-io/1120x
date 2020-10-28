@@ -66,5 +66,5 @@ func (r *Irs990File) ZipData() ([]byte, error) {
 }
 
 func (r Irs990File) Version() string {
-	return r.XmlData.ReturnVersion
+	return r.XmlData.Version
 }
