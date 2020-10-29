@@ -195,7 +195,10 @@ func Test990FileTest(t *testing.T) {
 }
 
 func TestUnmeaningTest(t *testing.T) {
-	ret := &Return{ReturnData: ReturnData{
+	ret := &Return{}
+	_ = ret.InspectData()
+
+	ret = &Return{ReturnData: ReturnData{
 		IRS990:          &IRS990{},
 		IRS990ScheduleA: &IRS990ScheduleA{},
 		IRS990ScheduleB: &IRS990ScheduleB{},
@@ -241,4 +244,146 @@ func TestUnmeaningTest(t *testing.T) {
 	_ = submission.Init()
 	_ = submission.SubmissionIdentifier()
 	submission.SetSubmissionIdentifier("")
+}
+
+func TestUnusedStructs(t *testing.T) {
+	var scheduleAT IRS990ScheduleAType
+	err := scheduleAT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleBT IRS990ScheduleBType
+	err = scheduleBT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleC IRS990ScheduleC
+	err = scheduleC.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleCT IRS990ScheduleCType
+	err = scheduleCT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleDT IRS990ScheduleDType
+	err = scheduleDT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleE IRS990ScheduleE
+	err = scheduleE.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleET IRS990ScheduleEType
+	err = scheduleET.Validate()
+	assert.Nil(t, err)
+
+	var scheduleF IRS990ScheduleF
+	err = scheduleF.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleFT IRS990ScheduleFType
+	err = scheduleFT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleG IRS990ScheduleG
+	err = scheduleG.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleGT IRS990ScheduleGType
+	err = scheduleGT.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleH IRS990ScheduleH
+	err = scheduleH.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleHT IRS990ScheduleHType
+	err = scheduleHT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleI IRS990ScheduleI
+	err = scheduleI.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleIT IRS990ScheduleIType
+	err = scheduleIT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleJ IRS990ScheduleJ
+	err = scheduleJ.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleJT IRS990ScheduleJType
+	err = scheduleJT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleK IRS990ScheduleK
+	err = scheduleK.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleKT IRS990ScheduleKType
+	err = scheduleKT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleL IRS990ScheduleL
+	err = scheduleL.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleLT IRS990ScheduleLType
+	err = scheduleLT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleM IRS990ScheduleM
+	err = scheduleM.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleMT IRS990ScheduleMType
+	err = scheduleMT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleN IRS990ScheduleN
+	err = scheduleN.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleNT IRS990ScheduleNType
+	err = scheduleNT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleO IRS990ScheduleO
+	err = scheduleO.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleOT IRS990ScheduleOType
+	err = scheduleOT.Validate()
+	assert.Nil(t, err)
+
+	var scheduleR IRS990ScheduleR
+	err = scheduleR.Validate()
+	assert.NotNil(t, err)
+
+	var scheduleRT IRS990ScheduleRType
+	err = scheduleRT.Validate()
+	assert.Nil(t, err)
+
+	var affiliate AffiliateListing
+	err = affiliate.Validate()
+	assert.NotNil(t, err)
+
+	var affiliateT AffiliateListingType
+	err = affiliateT.Validate()
+	assert.Nil(t, err)
+
+	var acknolist AckNotificationList
+	err = acknolist.Validate()
+	assert.Nil(t, err)
+
+	var ackno AckNotification
+	err = ackno.Validate()
+	assert.NotNil(t, err)
+
+	var usGrp AccountActivitiesOutsideUSGrpType
+	err = usGrp.Validate()
+	assert.Nil(t, err)
+
+	var incomeGrp AdjustedNetIncomeGrp
+	err = incomeGrp.Validate()
+	assert.Nil(t, err)
 }

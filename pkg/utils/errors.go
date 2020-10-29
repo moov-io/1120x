@@ -65,7 +65,6 @@ func Validate(r interface{}) error {
 	var err error
 	if debug {
 		fmt.Println(reflect.ValueOf(r).Type())
-		fmt.Println("==========")
 	}
 	fields := reflect.ValueOf(r).Elem()
 	for i := 0; i < fields.NumField(); i++ {
