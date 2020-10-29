@@ -52,6 +52,10 @@ func getReturnTypeFromRawXML(buf []byte) (*string, error) {
 		return nil, err
 	}
 	root := xmlquery.FindOne(doc, rootReturn)
+	if root == nil {
+		return nil, utils.ErrUnknownReturnType
+	}
+
 	if n := root.SelectElement(returnTypeCd); n != nil {
 		returnType := n.InnerText()
 		return &returnType, nil

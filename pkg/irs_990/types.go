@@ -20,14 +20,14 @@ import (
 type AllCountriesType string
 
 func (r AllCountriesType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // May be one of All States
 type AllStatesCd string
 
 func (r AllStatesCd) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // Must match the pattern [A-Za-z0-9\(\)]*
@@ -233,7 +233,7 @@ func (r CountryType) Validate() error {
 type DateType time.Time
 
 func (r DateType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 func (r *DateType) UnmarshalText(text []byte) error {
@@ -247,14 +247,14 @@ func (r DateType) MarshalText() ([]byte, error) {
 type DecimalNNType float64
 
 func (r DecimalNNType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // 2-digit decimal typically used by a decimal amount field.
 type DecimalType float64
 
 func (r DecimalType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // May be one of HY, MQ, MM, S/L
@@ -300,14 +300,14 @@ func (r DeviceIdType) Validate() error {
 type DirectControllingNACd string
 
 func (r DirectControllingNACd) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // May be one of PDF
 type DocumentTypeCd string
 
 func (r DocumentTypeCd) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // Must match the pattern [0-9]{6}
@@ -385,7 +385,7 @@ func (r ForeignPhoneNumberType) Validate() error {
 type ForeignRegulatedInvestmtCompCdType string
 
 func (r ForeignRegulatedInvestmtCompCdType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // May be one of
@@ -513,7 +513,7 @@ func (r IntegerNNType) Validate() error {
 type IntegerType int
 
 func (r IntegerType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // May be one of cash, accrual, hybrid
@@ -548,7 +548,7 @@ func (r MethodValuationCd) Validate() error {
 type MonthDayType time.Time
 
 func (r MonthDayType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 func (r *MonthDayType) UnmarshalText(text []byte) error {
@@ -563,7 +563,7 @@ func (r MonthDayType) MarshalText() ([]byte, error) {
 type MonthType time.Time
 
 func (r MonthType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 func (r *MonthType) UnmarshalText(text []byte) error {
@@ -703,7 +703,7 @@ func (r PTINType) Validate() error {
 type PartnersPageFilingType string
 
 func (r PartnersPageFilingType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // Must match the pattern ([A-Za-z\-] ?)*[A-Za-z\-]
@@ -790,7 +790,7 @@ func (t QuarterEndDateType) MarshalText() ([]byte, error) {
 type RatioType float64
 
 func (r RatioType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // Must match the pattern [A-Z0-9]{1,20}
@@ -855,7 +855,7 @@ func (r STINType) Validate() error {
 type SignatureOptionCd string
 
 func (r SignatureOptionCd) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // Must match the pattern [0-9]{10}
@@ -915,14 +915,14 @@ func (r StreetAddressType) Validate() error {
 type StringType string
 
 func (r StringType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // May be one of VARIOUS
 type StringVARIOUSType string
 
 func (r StringVARIOUSType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // Must match the pattern (MA[0-9]{7})|([0-9]{11})
@@ -951,7 +951,7 @@ func (r TaxYearEndMonthDtType) Validate() error {
 type TextType string
 
 func (r TextType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 // Base type for time
@@ -1011,7 +1011,7 @@ func (r VINType) Validate() error {
 type YearMonthType time.Time
 
 func (r YearMonthType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 func (r *YearMonthType) UnmarshalText(text []byte) error {
@@ -1025,7 +1025,7 @@ func (r YearMonthType) MarshalText() ([]byte, error) {
 type YearType time.Time
 
 func (r YearType) Validate() error {
-	return utils.Validate(&r)
+	return nil
 }
 
 func (r *YearType) UnmarshalText(text []byte) error {

@@ -30,7 +30,7 @@ func (r Irs990TransmissionFile) SOAPEnvelope() ([]byte, error) {
 }
 
 func (r Irs990TransmissionFile) SOAPAttachment() ([]byte, error) {
-	if r.Soap.Body.Manifest == nil {
+	if r.Soap.Body == nil || r.Soap.Body.Manifest == nil {
 		return nil, errors.New("don't include manifest")
 	}
 	data := r.Soap.Body.Manifest.SubmissionDataList
