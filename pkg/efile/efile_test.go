@@ -7,11 +7,12 @@ package efile
 import (
 	"encoding/json"
 	"encoding/xml"
-	"github.com/moov-io/1120x/pkg/irs_990"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"path/filepath"
 	"testing"
+
+	"github.com/moov-io/1120x/pkg/irs_990"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIrs990TransmissionFile(t *testing.T) {
@@ -55,8 +56,25 @@ func TestIrs990TransmissionFile(t *testing.T) {
 	_, err = newTransmission.SOAPEnvelope()
 	assert.Equal(t, nil, err)
 
+	returnBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
+	assert.Equal(t, nil, err)
+
+	manifestBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
+	assert.Equal(t, nil, err)
+
+	file := &irs_990.Irs990File{}
+
+	err = xml.Unmarshal(returnBuf, &file.XmlData)
+	assert.Equal(t, nil, err)
+
+	file.Manifest = &irs_990.IRSSubmissionManifest{}
+	err = xml.Unmarshal(manifestBuf, file.Manifest)
+	assert.Equal(t, nil, err)
+
+	newTransmission.Attachments = append(newTransmission.Attachments, file)
+
 	_, err = newTransmission.SOAPAttachment()
-	assert.NotNil(t, err)
+	assert.Equal(t, nil, err)
 
 	version := newTransmission.Version()
 	assert.Equal(t, "2015v2.0", version)
@@ -72,18 +90,29 @@ func TestUnusedStructs(t *testing.T) {
 	_, err = xml.Marshal(fault)
 	assert.Equal(t, nil, err)
 
-	style := &EncodingStyle{}
+	style := &EncodingStyle{"test1", "test2"}
 	err = xml.Unmarshal(InputXML, fault)
 	assert.Equal(t, nil, err)
 	_, err = xml.Marshal(style)
+	assert.Equal(t, nil, err)
+	_, err = style.MarshalText()
+	assert.Equal(t, nil, err)
+	err = style.UnmarshalText([]byte("example"))
 	assert.Equal(t, nil, err)
 
 	var idType MessageIdType
 	err = idType.Validate()
 	assert.NotNil(t, err)
+	idType = "012345678912abcdefgh"
+	err = idType.Validate()
+	assert.Equal(t, nil, err)
 
 	var detail TransmitterDetail
 	err = detail.Validate()
+	assert.NotNil(t, err)
+
+	var header IFATransmissionHeaderType
+	err = header.Validate()
 	assert.NotNil(t, err)
 
 	mani := TransmissionManifest{
