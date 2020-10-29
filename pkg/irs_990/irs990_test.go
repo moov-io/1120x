@@ -195,8 +195,8 @@ func Test990FileTest(t *testing.T) {
 }
 
 func TestUnmeaningTest(t *testing.T) {
-	ret := &Return{ReturnData:ReturnData{
-		IRS990: &IRS990{},
+	ret := &Return{ReturnData: ReturnData{
+		IRS990:          &IRS990{},
 		IRS990ScheduleA: &IRS990ScheduleA{},
 		IRS990ScheduleB: &IRS990ScheduleB{},
 		IRS990ScheduleC: &IRS990ScheduleC{},
@@ -232,4 +232,13 @@ func TestUnmeaningTest(t *testing.T) {
 	_ = manifest.Init()
 	_ = manifest.SubmissionIdentifier()
 	manifest.SetSubmissionIdentifier("")
+
+	submission := &IRSSubmissionManifest{}
+	_ = submission.Init()
+	_, err = submission.XmlData()
+	assert.Equal(t, nil, err)
+	_ = submission.Validate()
+	_ = submission.Init()
+	_ = submission.SubmissionIdentifier()
+	submission.SetSubmissionIdentifier("")
 }
