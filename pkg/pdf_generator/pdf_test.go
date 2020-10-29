@@ -5,11 +5,12 @@
 package pdf_generator
 
 import (
-	"github.com/moov-io/1120x/pkg/irs_990"
 	"io/ioutil"
 	"path/filepath"
 	"testing"
 
+	"github.com/jbowtie/ratago/xslt"
+	"github.com/moov-io/1120x/pkg/irs_990"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -72,4 +73,13 @@ func TestUnusedStructs(t *testing.T) {
 	r := &irs_990.Return{}
 	_, err = CreateReturnForm(r)
 	assert.NotNil(t, err)
+
+	doc := XMLDocument{}
+	_, err = runHtmlConvert(doc)
+	assert.NotNil(t, err)
+
+	options := xslt.StylesheetOptions{IndentOutput: true}
+	_, err = runHtmlConvertWithOptions("test", doc, options)
+	assert.NotNil(t, err)
+
 }
