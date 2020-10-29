@@ -193,3 +193,25 @@ func Test990FileTest(t *testing.T) {
 		assert.Contains(t, names, f.Name)
 	}
 }
+
+func TestUnmeaningTest(t *testing.T) {
+	ret := &Return{}
+	err := ret.Parse([]byte("test"))
+	assert.NotNil(t, err)
+	_ = ret.Init()
+	_ = ret.InspectData()
+	_ = ret.ReturnYear()
+	_ = ret.Validate()
+	_ = ret.String()
+	_ = ret.ReturnVersion()
+	_ = ret.ReturnType()
+
+	manifest := &StateSubmissionManifest{}
+	_ = manifest.Init()
+	_, err = manifest.XmlData()
+	assert.Equal(t, nil, err)
+	_ = manifest.Validate()
+	_ = manifest.Init()
+	_ = manifest.SubmissionIdentifier()
+	manifest.SetSubmissionIdentifier("")
+}
