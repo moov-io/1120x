@@ -120,6 +120,10 @@ func (r *Return) InspectData() *utils.ReturnInspectInfo {
 		}
 	}
 
+	if len(returnData) == 0 {
+		return nil
+	}
+
 	return &utils.ReturnInspectInfo{Header: r.ReturnHeader, Data: returnData}
 }
 

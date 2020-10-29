@@ -7,7 +7,9 @@ package utils
 import (
 	"bytes"
 	"encoding/xml"
+	"errors"
 	"io"
+	"regexp"
 )
 
 //////////////////////////////////////////////
@@ -35,6 +37,14 @@ type IrsReturnFile interface {
 	Validate() error
 	ZipData() ([]byte, error)
 	Version() string
+}
+
+// interface for manifest
+type ManifestXml interface {
+	Validate() error
+	XmlData() ([]byte, error)
+	SubmissionIdentifier() SubmissionIdType
+	SetSubmissionIdentifier(id SubmissionIdType)
 }
 
 type ReturnInspectInfo struct {
@@ -75,4 +85,15 @@ func FormatXML(data []byte) ([]byte, error) {
 			return nil, err
 		}
 	}
+}
+
+// Must match the pattern [0-9]{13}[a-z0-9]{7}
+type SubmissionIdType string
+
+func (r SubmissionIdType) Validate() error {
+	reg := regexp.MustCompile(`[0-9]{13}[a-z0-9]{7}`)
+	if !reg.MatchString(string(r)) {
+		return errors.New("SubmissionIdType is invalid")
+	}
+	return nil
 }
