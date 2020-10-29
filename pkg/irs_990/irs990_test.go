@@ -195,7 +195,25 @@ func Test990FileTest(t *testing.T) {
 }
 
 func TestUnmeaningTest(t *testing.T) {
-	ret := &Return{}
+	ret := &Return{ReturnData:ReturnData{
+		IRS990: &IRS990{},
+		IRS990ScheduleA: &IRS990ScheduleA{},
+		IRS990ScheduleB: &IRS990ScheduleB{},
+		IRS990ScheduleC: &IRS990ScheduleC{},
+		IRS990ScheduleD: &IRS990ScheduleD{},
+		IRS990ScheduleE: &IRS990ScheduleE{},
+		IRS990ScheduleF: &IRS990ScheduleF{},
+		IRS990ScheduleG: &IRS990ScheduleG{},
+		IRS990ScheduleH: &IRS990ScheduleH{},
+		IRS990ScheduleI: &IRS990ScheduleI{},
+		IRS990ScheduleJ: &IRS990ScheduleJ{},
+		IRS990ScheduleK: []IRS990ScheduleK{},
+		IRS990ScheduleL: &IRS990ScheduleL{},
+		IRS990ScheduleM: &IRS990ScheduleM{},
+		IRS990ScheduleN: &IRS990ScheduleN{},
+		IRS990ScheduleO: &IRS990ScheduleO{},
+		IRS990ScheduleR: &IRS990ScheduleR{},
+	}}
 	err := ret.Parse([]byte("test"))
 	assert.NotNil(t, err)
 	_ = ret.Init()
