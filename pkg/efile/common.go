@@ -7,8 +7,6 @@ package efile
 import (
 	"bytes"
 	"encoding/xml"
-	"errors"
-	"regexp"
 )
 
 type FaultDetail []string
@@ -55,29 +53,10 @@ func (r *EncodingStyle) UnmarshalText(text []byte) error {
 	return nil
 }
 
-// Must match the pattern [0-9]{13}[a-z0-9]{7}
-type SubmissionIdType string
-
-func (r SubmissionIdType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{13}[a-z0-9]{7}`)
-	if !reg.MatchString(string(r)) {
-		return errors.New("SubmissionIdType is invalid")
-	}
-	return nil
-}
-
 // Fault reporting structure
 type Fault struct {
-	Faultcode   xml.Name     `xml:"http://schemas.xmlsoap.org/soap/envelope/ faultcode"`
-	Faultstring string       `xml:"http://schemas.xmlsoap.org/soap/envelope/ faultstring"`
-	Faultactor  string       `xml:"http://schemas.xmlsoap.org/soap/envelope/ faultactor,omitempty" json:",omitempty"`
-	Detail      *FaultDetail `xml:"http://schemas.xmlsoap.org/soap/envelope/ detail,omitempty" json:",omitempty"`
-}
-
-// interface for manifest
-type ManifestXml interface {
-	Validate() error
-	XmlData() ([]byte, error)
-	SubmissionIdentifier() SubmissionIdType
-	SetSubmissionIdentifier(id SubmissionIdType)
+	Faultcode   xml.Name     `xml:"faultcode"`
+	Faultstring string       `xml:"faultstring"`
+	Faultactor  string       `xml:"faultactor,omitempty" json:",omitempty"`
+	Detail      *FaultDetail `xml:"detail,omitempty" json:",omitempty"`
 }
