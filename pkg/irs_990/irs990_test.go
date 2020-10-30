@@ -12,6 +12,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/moov-io/1120x/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -247,143 +248,132 @@ func TestUnmeaningTest(t *testing.T) {
 }
 
 func TestUnusedStructs(t *testing.T) {
-	var scheduleAT IRS990ScheduleAType
-	err := scheduleAT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleBT IRS990ScheduleBType
-	err = scheduleBT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleC IRS990ScheduleC
-	err = scheduleC.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleCT IRS990ScheduleCType
-	err = scheduleCT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleDT IRS990ScheduleDType
-	err = scheduleDT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleE IRS990ScheduleE
-	err = scheduleE.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleET IRS990ScheduleEType
-	err = scheduleET.Validate()
-	assert.Nil(t, err)
-
-	var scheduleF IRS990ScheduleF
-	err = scheduleF.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleFT IRS990ScheduleFType
-	err = scheduleFT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleG IRS990ScheduleG
-	err = scheduleG.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleGT IRS990ScheduleGType
-	err = scheduleGT.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleH IRS990ScheduleH
-	err = scheduleH.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleHT IRS990ScheduleHType
-	err = scheduleHT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleI IRS990ScheduleI
-	err = scheduleI.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleIT IRS990ScheduleIType
-	err = scheduleIT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleJ IRS990ScheduleJ
-	err = scheduleJ.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleJT IRS990ScheduleJType
-	err = scheduleJT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleK IRS990ScheduleK
-	err = scheduleK.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleKT IRS990ScheduleKType
-	err = scheduleKT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleL IRS990ScheduleL
-	err = scheduleL.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleLT IRS990ScheduleLType
-	err = scheduleLT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleM IRS990ScheduleM
-	err = scheduleM.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleMT IRS990ScheduleMType
-	err = scheduleMT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleN IRS990ScheduleN
-	err = scheduleN.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleNT IRS990ScheduleNType
-	err = scheduleNT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleO IRS990ScheduleO
-	err = scheduleO.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleOT IRS990ScheduleOType
-	err = scheduleOT.Validate()
-	assert.Nil(t, err)
-
-	var scheduleR IRS990ScheduleR
-	err = scheduleR.Validate()
-	assert.NotNil(t, err)
-
-	var scheduleRT IRS990ScheduleRType
-	err = scheduleRT.Validate()
-	assert.Nil(t, err)
-
-	var affiliate AffiliateListing
-	err = affiliate.Validate()
-	assert.NotNil(t, err)
-
-	var affiliateT AffiliateListingType
-	err = affiliateT.Validate()
-	assert.Nil(t, err)
-
-	var acknolist AckNotificationList
-	err = acknolist.Validate()
-	assert.Nil(t, err)
-
-	var ackno AckNotification
-	err = ackno.Validate()
-	assert.NotNil(t, err)
-
-	var usGrp AccountActivitiesOutsideUSGrpType
-	err = usGrp.Validate()
-	assert.Nil(t, err)
-
-	var incomeGrp AdjustedNetIncomeGrp
-	err = incomeGrp.Validate()
-	assert.Nil(t, err)
+	instances := []interface{}{
+		&IRS990ScheduleAType{}, &IRS990ScheduleA{},
+		&IRS990ScheduleBType{}, &IRS990ScheduleB{},
+		&IRS990ScheduleCType{}, &IRS990ScheduleC{},
+		&IRS990ScheduleDType{}, &IRS990ScheduleD{},
+		&IRS990ScheduleEType{}, &IRS990ScheduleE{},
+		&IRS990ScheduleFType{}, &IRS990ScheduleF{},
+		&IRS990ScheduleGType{}, &IRS990ScheduleG{},
+		&IRS990ScheduleHType{}, &IRS990ScheduleH{},
+		&IRS990ScheduleIType{}, &IRS990ScheduleI{},
+		&IRS990ScheduleJType{}, &IRS990ScheduleJ{},
+		&IRS990ScheduleKType{}, &IRS990ScheduleK{},
+		&IRS990ScheduleLType{}, &IRS990ScheduleL{},
+		&IRS990ScheduleMType{}, &IRS990ScheduleM{},
+		&IRS990ScheduleNType{}, &IRS990ScheduleN{},
+		&IRS990ScheduleOType{}, &IRS990ScheduleO{},
+		&IRS990ScheduleRType{}, &IRS990ScheduleR{},
+		&AffiliateListingType{}, &AffiliateListing{},
+		&AckNotificationList{},
+		&AckNotification{},
+		&AccountActivitiesOutsideUSGrpType{},
+		&AdjustedNetIncomeGrp{},
+		&AffiliateListingGrpType{},
+		&AffiliatedScheduleGrp{},
+		&AllAffiliatesIncludedInd{},
+		&AuditedFinancialStmtAttInd{},
+		&BusTrInvolveInterestedPrsnGrp{},
+		&CharitableContributionsDetailType{},
+		&CollectionUsedOtherPurposesGrp{},
+		&ContractorAddress{},
+		&ContractorName{},
+		&CostingMethodologyUsedGrp{},
+		&DiscountedCareOthPercentageGrp{},
+		&DisqualifiedPersonExBnftTrGrpType{},
+		&DistributableAmountGrp{},
+		&DistributionAllocationsGrp{},
+		&DistributionsGrp{},
+		&FeesForServicesProfFundraising{},
+		&FinancialStatementType{},
+		&ForeignEntityIdentificationGrpType{},
+		&ForeignIndividualsGrantsGrpType{},
+		&ForeignItemizedEntryType{},
+		&Form990PartIXGroup1Type{},
+		&Form990PartVIIGroup1Type{},
+		&Form990PartVIIIGroup1Type{},
+		&Form990PartVIIIGroup4Type{},
+		&Form990PartVIIIGroup7Type{},
+		&Form990SchASupportingOrgGrp{},
+		&Form990SchAType1SuprtOrgGrp{},
+		&Form990SchAType3FuncIntGrp{},
+		&Form990SchAType3SprtOrgAllGrp{},
+		&Form990SchCPartIIAGroup1Type{},
+		&Form990SchCPartIIAGroup2Type{},
+		&Form990SchDPartIIIGroup1Type{},
+		&Form990SchDPartIXGroup1Type{},
+		&Form990SchDPartVGroup1Type{},
+		&Form990SchDPartVIGroup2Type{},
+		&Form990SchDPartVIIGroup1Type{},
+		&Form990SchDPartVIIGroup2Type{},
+		&Form990SchDPartVIIIGroup1Type{},
+		&Form990SchDPartXGroup1Type{},
+		&Form990SchHPartIGroup1Type{},
+		&Form990SchHPartIIGroup1Type{},
+		&Form990SchMGroup2Type{},
+		&Form990SchNGroup1Type{},
+		&Form990ScheduleAPartVIGrp{},
+		&FreeCareOthPercentageGrp{},
+		&FundraiserActivityInfoGrpType{},
+		&FundraisingEventInformationGrpType{},
+		&GamingInformationGrpType{},
+		&GrantsOtherAsstToIndivInUSGrp{},
+		&GrantsToOrgOutsideUSGrpType{},
+		&GrntAsstBnftInterestedPrsnGrp{},
+		&HospitalFacilitiesGrp{},
+		&HospitalFcltyPoliciesPrctcGrp{},
+		&HospitalNameAndAddressGrpType{},
+		&IPAddressType{},
+		&IdDisregardedEntitiesGrp{},
+		&IdRelatedOrgTxblCorpTrGrp{},
+		&IdRelatedOrgTxblPartnershipGrp{},
+		&IdRelatedTaxExemptOrgGrp{},
+		&LiquidationOfAssetsTableGrp{},
+		&LoansBtwnOrgInterestedPrsnGrpType{},
+		&ManagementCoAndJntVenturesGrp{},
+		&MinimumAssetAmountGrp{},
+		&NameAndAddressType{},
+		&NameOfInterested{},
+		&NonCashPropertyContributionGrpType{},
+		&Organization501cInd{},
+		&OrganizationBelongsAffltGrpInd{},
+		&OthHlthCareFcltsNotHospitalGrp{},
+		&OtherForeignAddressType{},
+		&OtherUSAddressType{},
+		&PersonFullNameType{},
+		&PractitionerPINGrp{},
+		&ProceduresCorrectiveActionGrpType{},
+		&ProgSrvcAccomplishmentActyGrpType{},
+		&RecipientTable{},
+		&RltdOrgOfficerTrstKeyEmplGrp{},
+		&Section527PoliticalOrgGrp{},
+		&StrategyAttachedInd{},
+		&USItemizedEntryType{},
+		&UnrelatedOrgTxblPartnershipGrp{},
+		&VehicleDescriptionGrpType{},
+		&SupplementalInformationDetail{},
+		&SupplementalInformationGrp{},
+		&SupportedOrgInformationGrpType{},
+		&TaxExemptBondsArbitrageGrpType{},
+		&TaxExemptBondsIssuesGrpType{},
+		&TaxExemptBondsPrivateBusUseGrpType{},
+		&TaxExemptBondsProceedsGrpType{},
+		&TotContriRcvdUpTo1000Ind{},
+		&TransactionWithControlEntInd{},
+		&TransactionsRelatedOrgGrpType{},
+		&ValidationErrorListType{},
+		&ValidationErrorGrp{},
+		&ValidationAlertListType{},
+		&ValidationAlertGrp{},
+		&SubmissionReceiptGrp{},
+		&StatusRecordGrp{},
+		&Acknowledgement{},
+		&AcknowledgementList{},
+		&SubmissionReceiptList{},
+		&StatusRecordList{},
+	}
+	for _, instance := range instances {
+		utils.Validate(instance)
+	}
 }
