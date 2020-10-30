@@ -11,8 +11,8 @@ import (
 	"io/ioutil"
 	"path/filepath"
 	"testing"
+	"time"
 
-	"github.com/moov-io/1120x/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -247,8 +247,20 @@ func TestUnmeaningTest(t *testing.T) {
 	submission.SetSubmissionIdentifier("")
 }
 
+// General type interface
+type generalXmlType interface {
+	Validate() error
+}
+
+// General type interface
+type testLocalTime interface {
+	MarshalText() ([]byte, error)
+	MarshalXML(e *xml.Encoder, start xml.StartElement) error
+	MarshalXMLAttr(name xml.Name) (xml.Attr, error)
+}
+
 func TestUnusedStructs(t *testing.T) {
-	instances := []interface{}{
+	instances := []generalXmlType{
 		&IRS990ScheduleAType{}, &IRS990ScheduleA{},
 		&IRS990ScheduleBType{}, &IRS990ScheduleB{},
 		&IRS990ScheduleCType{}, &IRS990ScheduleC{},
@@ -374,6 +386,130 @@ func TestUnusedStructs(t *testing.T) {
 		&StatusRecordList{},
 	}
 	for _, instance := range instances {
-		utils.Validate(instance)
+		instance.Validate()
+	}
+
+	types := []generalXmlType{
+		AllCountriesType(""),
+		AllStatesCd(""),
+		AlphaNumericAndParenthesesType(""),
+		AlphaNumericType(""),
+		BankAccountNumberType(""),
+		BankAccountType(""),
+		BondReferenceCd(""),
+		BusinessCd(""),
+		BusinessNameControlType(""),
+		BusinessNameLine1Type(""),
+		BusinessNameLine2Type(""),
+		CHNAConductedYr(0),
+		CUSIPNumberType(""),
+		CheckDigitType(""),
+		CityType(""),
+		ConsortiumType(""),
+		CountryType(""),
+		DateType(time.Now()),
+		DecimalNNType(0),
+		DecimalType(0),
+		DepreciationConventionCodeType(""),
+		DepreciationMethodCodeType(""),
+		DeviceIdType(""),
+		DirectControllingNACd(""),
+		DocumentTypeCd(""),
+		EFINType(""),
+		EINType(""),
+		ETINType(""),
+		FUTAStateCdType(""),
+		ForeignEntityReferenceIdNum(""),
+		ForeignPhoneNumberType(""),
+		ForeignRegulatedInvestmtCompCdType(""),
+		GovernmentCodeType(""),
+		GroupExemptionNum(""),
+		IPv4Type(""),
+		IPv6Type(""),
+		IRSServiceCenterType(""),
+		ISPType(""),
+		IdType(""),
+		ImplementationStrategyAdptYr(0),
+		InCareOfNameType(""),
+		IntegerNNType(0),
+		IntegerType(0),
+		MethodOfAccountingType(""),
+		MethodValuationCd(""),
+		MonthDayType(time.Now()),
+		MonthType(time.Now()),
+		NameLine1Type(""),
+		NumericType(""),
+		Organization501cTypeTxt(""),
+		OrganizationTypeCd(""),
+		OriginatorType(""),
+		PINCodeType(""),
+		PINEnteredByCd(""),
+		PINEnteredByType(""),
+		PINType(""),
+		PTINType(""),
+		PartnersPageFilingType(""),
+		PersonFirstNameType(""),
+		PersonLastNameType(""),
+		PersonNameControlType(""),
+		PersonNameType(""),
+		PersonTitleType(""),
+		PhoneNumberType(""),
+		QuarterEndDateType(time.Now()),
+		RatioType(0),
+		RegistrationNumType(""),
+		ReturnTypeCd(""),
+		RoutingTransitNumberType(""),
+		SSNType(""),
+		STINType(""),
+		SignatureOptionCd(""),
+		SignatureType(""),
+		SoftwareIdType(""),
+		StateType(""),
+		StreetAddressType(""),
+		StringType(""),
+		StringVARIOUSType(""),
+		TaxShelterRegistrationType(""),
+		TaxYearEndMonthDtType(""),
+		TextType(""),
+		TimeType(time.Now()),
+		TimestampType(time.Now()),
+		TimezoneType(""),
+		VINType(""),
+		YearMonthType(time.Now()),
+		YearType(time.Now()),
+		ZIPCodeType(""),
+		SubmissionIdType(""),
+		StateSubmissionTyp(""),
+		SubmissionTyp(""),
+		TempIdType(""),
+		EmbeddedCRC32Num(""),
+		ComputedCRC32Num(""),
+		FederalSubmissionTypeCd(""),
+		SubmissionCategoryType(""),
+		FederalEIN(""),
+	}
+	for _, _type := range types {
+		_type.Validate()
+	}
+
+	var _id IdListType
+	xml.Marshal(&_id)
+	xml.Unmarshal([]byte("test"), &_id)
+
+	_times := []testLocalTime{
+		xsdDate(time.Now()),
+		xsdDateTime(time.Now()),
+		xsdGMonth(time.Now()),
+		xsdGMonthDay(time.Now()),
+		xsdGYear(time.Now()),
+		xsdGYearMonth(time.Now()),
+		xsdTime(time.Now()),
+	}
+
+	for _, _time := range _times {
+		xml.Marshal(&_time)
+		xml.Unmarshal([]byte("test"), &_time)
+		_time.MarshalText()
+		_time.MarshalXMLAttr(xml.Name{Local: "test"})
 	}
 }
