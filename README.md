@@ -2,21 +2,31 @@
 
 The project is irs sub project to support IRS Modernized e-File Forms 1120, 1120S, and 1120-F for Tax Year 2020 and beyond.
 
+1120x is a subset of [moov.io IRS](https://github.com/moov-io/irs) project. It'll support Modernized e-File payload production for the 1120 family forms for tax year 2020 and beyond.
+
+    - 1120        U.S. Corporation Income Tax Return.
+    - 1120S       U.S. Income Tax Return for an S Corporation.
+    - 1120-F      U.S. Income Tax Return of a Foreign Corporation.
+    - 1120-POL    U.S. Income Tax Return for Certain Political Organizations.
+
+Suport for more business related form types will be added in subsequent version updates.
+
+
 ## Terminology
 
 - Manifest
 
-    ManifestXML is a manifest.xml file, which provides information about the Submission.
+    "ManifestXML" is a manifest.xml file, which provides information about the Submission.
 
 - Return
 
-    Return is return schema for irs forms.
+    "Return" is return schema for irs forms.
     example : Return990.xsd
 
 - Submission
 
     An IRS submission consists of XML data and optional binary attachments (PDF Files), which are packaged and compressed into a zip file.
-    In this project submission zip archive is called as submission
+    In this project submission zip archive is called submission.
 
 ## Features
 
@@ -34,7 +44,10 @@ there are 2 main functions to get data.
 User can create SOAP message of return or state using 1120x package easily.
 
 
-Main focus of this project is to convert form JSON file and XML file to irs e-file structure (raw data of SOAP envelope and attachments).
+Main focus of this project is to convert from JSON and/or XML input to irs e-file structure (i.e. raw data of SOAP envelope and attachments).
+
+Produced SOAP data must satisfy the Assurance Testing System (ATS) requirements set out by the IRS for all supported form types.
+
 
 | Input      | Output     |
 |------------|------------|
@@ -42,6 +55,7 @@ Main focus of this project is to convert form JSON file and XML file to irs e-fi
 | XML        | XML        |
 |            | Irs e-file |
 |            | SQL        |
+
 
 ### Go Codes from XSD files
 We should get golang codes from xsd files that provided irs.
