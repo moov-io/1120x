@@ -2,6 +2,8 @@ github.com/SebastiaanKlippert/go-wkhtmltopdf v1.6.0 h1:Rq8F5akx2Mpj5BehnEdrE3QdF
 github.com/SebastiaanKlippert/go-wkhtmltopdf v1.6.0/go.mod h1:zRBvVJtIfhaWvQ9lPIkXrtona4qqSmjZ1HfKvq4dQzI=
 github.com/SebastiaanKlippert/go-wkhtmltopdf v1.6.1 h1:Arp9w1xMGfnYFQH8don5x7b9oPQWQrUcpFquvBCFvlU=
 github.com/SebastiaanKlippert/go-wkhtmltopdf v1.6.1/go.mod h1:zRBvVJtIfhaWvQ9lPIkXrtona4qqSmjZ1HfKvq4dQzI=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.7.0 h1:N7toG6+71exXk3KRtyD5gtd0S6Tpf43P9G3cZx6RAkQ=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.7.0/go.mod h1:zRBvVJtIfhaWvQ9lPIkXrtona4qqSmjZ1HfKvq4dQzI=
 github.com/antchfx/xmlquery v1.3.2 h1:4sD655p6i0TBC9Nzd8Z2Ox5MEqOMQDjrNwUDN8RrJ24=
 github.com/antchfx/xmlquery v1.3.2/go.mod h1:64w0Xesg2sTaawIdNqMB+7qaW/bSqkQm+ssPaCMWNnc=
 github.com/antchfx/xmlquery v1.3.3 h1:HYmadPG0uz8CySdL68rB4DCLKXz2PurCjS3mnkVF4CQ=
