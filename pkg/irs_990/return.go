@@ -6,11 +6,12 @@ package irs_990
 
 import (
 	"encoding/xml"
-	"github.com/moov-io/1120x/pkg/utils"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/moov-io/1120x/pkg/utils"
 )
 
 type Return struct {
@@ -44,6 +45,8 @@ func isNil(i interface{}) bool {
 	switch reflect.TypeOf(i).Kind() {
 	case reflect.Ptr, reflect.Map, reflect.Array, reflect.Chan, reflect.Slice:
 		return reflect.ValueOf(i).IsNil()
+	default:
+		return false
 	}
 	return false
 }
