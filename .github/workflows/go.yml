@@ -32,7 +32,7 @@ jobs:
       run: |
         brew install pkg-config libxml2 libxslt
         sudo ln -s /usr/local/opt/libxml2/include/libxml2/libxml /usr/local/include/libxml
-        brew cask install wkhtmltopdf
+        brew install wkhtmltopdf
 
     # - name: Install Windows Dependencies
     #   if: runner.os == 'Windows'
