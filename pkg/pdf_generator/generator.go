@@ -136,7 +136,7 @@ func generateXmlFile(document XMLDocument) (*os.File, error) {
 	if err != nil {
 		return nil, err
 	}
-	err = ioutil.WriteFile(tmpFile.Name(), document.XML, 0644)
+	err = ioutil.WriteFile(tmpFile.Name(), document.XML, 0600)
 	if err != nil {
 		defer os.Remove(tmpFile.Name())
 		return nil, err

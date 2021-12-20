@@ -179,7 +179,7 @@ func Test990FileTest(t *testing.T) {
 
 	tmpFile, err := ioutil.TempFile("", "test_zip_")
 	assert.Equal(t, nil, err)
-	err = ioutil.WriteFile(tmpFile.Name(), zipData, 0644)
+	err = ioutil.WriteFile(tmpFile.Name(), zipData, 0600)
 	assert.Equal(t, nil, err)
 
 	r, err := zip.OpenReader(tmpFile.Name())
@@ -506,9 +506,12 @@ func TestUnusedStructs(t *testing.T) {
 		xsdTime(time.Now()),
 	}
 
-	for _, _time := range _times {
+	for i := range _times {
+		_time := _times[i]
+
 		xml.Marshal(&_time)
 		xml.Unmarshal([]byte("test"), &_time)
+
 		_time.MarshalText()
 		_time.MarshalXMLAttr(xml.Name{Local: "test"})
 	}
