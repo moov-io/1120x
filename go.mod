@@ -1,6 +1,6 @@
 module github.com/moov-io/1120x
 
-go 1.13
+go 1.18
 
 require (
 	github.com/SebastiaanKlippert/go-wkhtmltopdf v1.7.2
