@@ -8,7 +8,7 @@ import (
 	"archive/zip"
 	"encoding/json"
 	"encoding/xml"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"testing"
 	"time"
@@ -17,7 +17,7 @@ import (
 )
 
 func TestReturnXmlTest(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
+	InputXML, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
 	assert.Equal(t, nil, err)
 
 	// 1. parse from xml data
@@ -55,7 +55,7 @@ func TestReturnXmlTest(t *testing.T) {
 }
 
 func TestSubmissionManifestTest(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
+	InputXML, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
 	assert.Equal(t, nil, err)
 
 	// 1. parse from xml data
@@ -93,7 +93,7 @@ func TestSubmissionManifestTest(t *testing.T) {
 }
 
 func TestStateSubmissionManifestTest(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_state_submission_manifest.xml"))
+	InputXML, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_state_submission_manifest.xml"))
 	assert.Equal(t, nil, err)
 
 	// 1. parse from xml data
@@ -131,10 +131,10 @@ func TestStateSubmissionManifestTest(t *testing.T) {
 }
 
 func Test990FileTest(t *testing.T) {
-	returnBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
+	returnBuf, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
 	assert.Equal(t, nil, err)
 
-	manifestBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
+	manifestBuf, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
 	assert.Equal(t, nil, err)
 
 	file := &Irs990File{}
@@ -177,9 +177,9 @@ func Test990FileTest(t *testing.T) {
 	zipData, err := newFile.ZipData()
 	assert.Equal(t, nil, err)
 
-	tmpFile, err := ioutil.TempFile("", "test_zip_")
+	tmpFile, err := os.CreateTemp("", "test_zip_")
 	assert.Equal(t, nil, err)
-	err = ioutil.WriteFile(tmpFile.Name(), zipData, 0600)
+	err = os.WriteFile(tmpFile.Name(), zipData, 0600)
 	assert.Equal(t, nil, err)
 
 	r, err := zip.OpenReader(tmpFile.Name())

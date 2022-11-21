@@ -7,7 +7,7 @@ package efile
 import (
 	"encoding/json"
 	"encoding/xml"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"testing"
 
@@ -16,7 +16,7 @@ import (
 )
 
 func TestIrs990TransmissionFile(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_transmission_file.xml"))
+	InputXML, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_transmission_file.xml"))
 	assert.Equal(t, nil, err)
 
 	// 1. parse from xml data
@@ -56,10 +56,10 @@ func TestIrs990TransmissionFile(t *testing.T) {
 	_, err = newTransmission.SOAPEnvelope()
 	assert.Equal(t, nil, err)
 
-	returnBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
+	returnBuf, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
 	assert.Equal(t, nil, err)
 
-	manifestBuf, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
+	manifestBuf, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_submission_manifest.xml"))
 	assert.Equal(t, nil, err)
 
 	file := &irs_990.Irs990File{}
@@ -81,7 +81,7 @@ func TestIrs990TransmissionFile(t *testing.T) {
 }
 
 func TestUnusedStructs(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_transmission_file.xml"))
+	InputXML, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_transmission_file.xml"))
 	assert.Equal(t, nil, err)
 
 	fault := &FaultDetail{}

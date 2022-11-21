@@ -6,7 +6,6 @@ package pdf_generator
 
 import (
 	"bytes"
-	"io/ioutil"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -132,11 +131,11 @@ func getStylesheetFile(document XMLDocument) (*string, error) {
 }
 
 func generateXmlFile(document XMLDocument) (*os.File, error) {
-	tmpFile, err := ioutil.TempFile(tempDir, xmlNamePattern)
+	tmpFile, err := os.CreateTemp(tempDir, xmlNamePattern)
 	if err != nil {
 		return nil, err
 	}
-	err = ioutil.WriteFile(tmpFile.Name(), document.XML, 0600)
+	err = os.WriteFile(tmpFile.Name(), document.XML, 0600)
 	if err != nil {
 		defer os.Remove(tmpFile.Name())
 		return nil, err

@@ -5,7 +5,7 @@
 package pdf_generator
 
 import (
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"testing"
 
@@ -15,7 +15,7 @@ import (
 )
 
 func TestPdfGenerator(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
+	InputXML, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_return.xml"))
 	assert.Equal(t, nil, err)
 
 	// 1. create tax return
@@ -61,7 +61,7 @@ func TestPdfGenerator(t *testing.T) {
 }
 
 func TestUnusedStructs(t *testing.T) {
-	InputXML, err := ioutil.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_invalid_return.xml"))
+	InputXML, err := os.ReadFile(filepath.Join("..", "..", "test", "testdata", "irs990_invalid_return.xml"))
 	assert.Equal(t, nil, err)
 
 	_, err = CreateReturn([]byte("test"))
