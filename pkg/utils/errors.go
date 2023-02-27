@@ -53,7 +53,13 @@ func validateCallbackByValue(data reflect.Value) error {
 		if len(response) > 0 {
 			err := response[0]
 			if !err.IsNil() {
-				return err.Interface().(error)
+				var value error
+				if err.CanInterface() {
+					if v, ok := err.Interface().(error); ok {
+						value = v
+					}
+				}
+				return value
 			}
 		}
 	}

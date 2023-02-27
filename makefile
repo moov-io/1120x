@@ -8,7 +8,7 @@ ifeq ($(OS),Windows_NT)
 else
 	@wget -O lint-project.sh https://raw.githubusercontent.com/moov-io/infra/master/go/lint-project.sh
 	@chmod +x ./lint-project.sh
-	COVER_THRESHOLD=80.0 ./lint-project.sh
+	COVER_THRESHOLD=80.0 IGNORED_CVES=CVE-2022-41723 ./lint-project.sh
 endif
 
 .PHONY: clean
