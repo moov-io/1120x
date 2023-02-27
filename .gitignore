@@ -35,6 +35,7 @@ staticcheck*
 /lint-project.sh
 bin/
 tmp/
+gitleaks.tar.gz
 
 pkger*
 pkged.go
