@@ -53,39 +53,56 @@ func isNil(i interface{}) bool {
 func generateReturnData(inspect inspectStruct) *utils.ReturnInspectData {
 	switch inspect.Type {
 	case utils.IRS990ScheduleA:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleA: inspect.Data.(*IRS990ScheduleA)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleA)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleA: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleB:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleB: inspect.Data.(*IRS990ScheduleB)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleB)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleB: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleC:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleC: inspect.Data.(*IRS990ScheduleC)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleC)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleC: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleD:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleD: inspect.Data.(*IRS990ScheduleD)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleD)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleD: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleE:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleE: inspect.Data.(*IRS990ScheduleE)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleE)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleE: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleF:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleF: inspect.Data.(*IRS990ScheduleF)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleF)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleF: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleG:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleG: inspect.Data.(*IRS990ScheduleG)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleG)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleG: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleH:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleH: inspect.Data.(*IRS990ScheduleH)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleH)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleH: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleI:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleI: inspect.Data.(*IRS990ScheduleI)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleI)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleI: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleJ:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleJ: inspect.Data.(*IRS990ScheduleJ)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleJ)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleJ: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleK:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleK: inspect.Data.([]IRS990ScheduleK)}, DataType: inspect.Type}
+		value, _ := inspect.Data.([]IRS990ScheduleK)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleK: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleL:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleL: inspect.Data.(*IRS990ScheduleL)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleL)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleL: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleM:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleM: inspect.Data.(*IRS990ScheduleM)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleM)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleM: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleN:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleN: inspect.Data.(*IRS990ScheduleN)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleN)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleN: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleO:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleO: inspect.Data.(*IRS990ScheduleO)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleO)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleO: value}, DataType: inspect.Type}
 	case utils.IRS990ScheduleR:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleR: inspect.Data.(*IRS990ScheduleR)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990ScheduleR)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990ScheduleR: value}, DataType: inspect.Type}
 	case utils.IRS990:
-		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990: inspect.Data.(*IRS990)}, DataType: inspect.Type}
+		value, _ := inspect.Data.(*IRS990)
+		return &utils.ReturnInspectData{Data: ReturnData{DocumentCnt: 1, IRS990: value}, DataType: inspect.Type}
 	}
 	return nil
 }
