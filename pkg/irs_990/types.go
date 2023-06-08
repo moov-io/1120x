@@ -271,7 +271,7 @@ func (r DepreciationConventionCodeType) Validate() error {
 	return errors.New("DepreciationConventionCodeType is invalid")
 }
 
-// May be one of 200 DB, 150 DB, DB, S/L, Various
+// May be one of DB, 200 DB, 150 DB, S/L, Various
 type DepreciationMethodCodeType string
 
 func (r DepreciationMethodCodeType) Validate() error {
