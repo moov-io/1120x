@@ -70,6 +70,7 @@ func FormatXML(data []byte) ([]byte, error) {
 	b := &bytes.Buffer{}
 	decoder := xml.NewDecoder(bytes.NewReader(data))
 	encoder := xml.NewEncoder(b)
+	defer encoder.Close()
 	encoder.Indent("", "  ")
 	for {
 		token, err := decoder.Token()
