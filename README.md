@@ -61,13 +61,13 @@ Produced SOAP data must satisfy the Assurance Testing System (ATS) requirements 
 We should get golang codes from xsd files that provided irs.
 There are many method to get go code from XSD, but perfect tool (application) for this don't exist. Because there are many problems about xml version, tags, etc.
 
-To get go code from XSD files, we can use xsdgen (https://godoc.org/aqwari.net/xml/cmd/xsdgen) and following steps.  <br/> 
+To get go code from XSD files, we can use xsdgen (https://godoc.org/aqwari.net/xml/cmd/xsdgen) and following steps.  <br/>
 1. create a merged xsd file <br/>
 xsdgen don't support include tag, so should create a merged xsd file to import other xsd file instead of include tag.  <br/>
 2. remove repeated go structures <br/>
 any go structures can be repeated in generated code, so the structures need to be removed manually.
 3. change field value to pointer, add json tag <br/>
-if field have omitempty tag, we need to change pointer the field, add json tag of omitempty. 
+if field have omitempty tag, we need to change pointer the field, add json tag of omitempty.
 4. remove unnecessary xml namespace <br/>
 
 ### PDF
@@ -81,7 +81,7 @@ Other feature of the package is to create pdf file from XML and XSD files.
 
 ### PDF Generator
 
-The IRS publishes stylesheets that can be used to transform XML document into HTML. 
+The IRS publishes stylesheets that can be used to transform XML document into HTML.
 Specifically, these XSLT (eXtensible Stylesheet Language Transformation) files are distributed each year by the IRS so that tax preparers can generate tools that submit tax filings in the proper format.
 
 To generate pdf from stylesheets and input xml (return.xml)
@@ -89,12 +89,12 @@ To generate pdf from stylesheets and input xml (return.xml)
 - XML -> HTML -> PDF<br/>
   we don't create pdf for any return from input xml and stylesheets.<br/>
   we should use html as temporary result.
-   
+
 XML -> HTML <br/>
 There are 2 methods to get html in 1120x package.  <br/>
 
 - To use github.com/jbowtie/ratago/xslt <br/>
-the method used go package, but there is a problem that XSD parameters are invalid sometimes. <br/> 
+the method used go package, but there is a problem that XSD parameters are invalid sometimes. <br/>
 - To use http://xmlsoft.org/XSLT/xsltproc.html  <br/>
 the method should use application file (xsltproc), but above problem is fixed.
 
@@ -114,7 +114,7 @@ After implement main features, we should merge https://github.com/moov-io/irs an
 
 ## Supported and Tested Platforms
 
-- 64-bit Linux (Ubuntu, Debian), macOS, and Windows
+- 64-bit Linux (Ubuntu, Debian) and macOS
 
 ## Contributing
 
