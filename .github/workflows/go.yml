@@ -46,7 +46,7 @@ jobs:
 
     # Setup Go and start our checks
     - name: Set up Go 1.x
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v5
       with:
         go-version: ^1.14
       id: go
