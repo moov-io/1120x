@@ -30,11 +30,8 @@ jobs:
     - name: Install macOS Dependencies
       if: runner.os == 'macOS'
       run: |
-        brew install --force pkg-config libxml2 libxslt
-        sudo ln -s /usr/local/opt/libxml2/include/libxml2/libxml /usr/local/include/libxml
+        brew install pkg-config libxml2 libxslt
         brew install icu4c wkhtmltopdf
-      env:
-        PKG_CONFIG_PATH: "/opt/homebrew/opt/libxslt/lib/pkgconfig"
 
     # - name: Install Windows Dependencies
     #   if: runner.os == 'Windows'
