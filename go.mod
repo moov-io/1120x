@@ -1,11 +1,13 @@
 module github.com/moov-io/1120x
 
-go 1.19
+go 1.22
+
+toolchain go1.23.4
 
 require (
 	github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.2
 	github.com/antchfx/xmlquery v1.3.18
-	github.com/jbowtie/gokogiri v0.0.0-20190301021639-37f655d3078f
+	github.com/jbowtie/gokogiri v0.0.0-20250107075044-de0f9d4877a5
 	github.com/jbowtie/ratago v0.0.0-20200401224626-3140c0a9b186
 	github.com/stretchr/testify v1.8.4
 )

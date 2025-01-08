@@ -24,6 +24,8 @@ github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da h1:oI5xCqsCo564l
 github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da/go.mod h1:cIg4eruTrX1D+g88fzRXU5OdNfaM+9IcxsU14FzY7Hc=
 github.com/jbowtie/gokogiri v0.0.0-20190301021639-37f655d3078f h1:6UIvzqlGM38lOpKP380Wbl0kUyyjutcc7KJUaDM/U4o=
 github.com/jbowtie/gokogiri v0.0.0-20190301021639-37f655d3078f/go.mod h1:C3R3VzPq+DAwilxue7DiV6F2QL1rrQX0L56GyI+sBxM=
+github.com/jbowtie/gokogiri v0.0.0-20250107075044-de0f9d4877a5 h1:tQbR4RKFBFi0+Ll69dXejKKUbQVNaOAT2fjlDvSAfx4=
+github.com/jbowtie/gokogiri v0.0.0-20250107075044-de0f9d4877a5/go.mod h1:kQE2lxPgVKe0JsBZMFFfMm5zBDCuRhaHFKOBzZeCLiw=
 github.com/jbowtie/ratago v0.0.0-20200401224626-3140c0a9b186 h1:8N1+ik35JbbQVslv63BvyO1yv0TC5Ol/ip26fOy+MP0=
 github.com/jbowtie/ratago v0.0.0-20200401224626-3140c0a9b186/go.mod h1:0ZLxKWdtG2yYN5kJTy71ALuAcl/gFhkxuGbKCMufBwI=
 github.com/kr/pretty v0.3.0 h1:WgNl7dwNpEZ6jJ9k1snq4pZsg7DOEN8hP9Xw0Tsjwk0=
