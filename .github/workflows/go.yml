@@ -50,7 +50,7 @@ jobs:
         go install github.com/jbowtie/ratago@latest
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     # - name: Install make (Windows)
     #   if: runner.os == 'Windows'
