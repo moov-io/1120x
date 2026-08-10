@@ -21,17 +21,18 @@ jobs:
       if: runner.os == 'Linux'
       run: |
         sudo apt-get update -qq
-        sudo apt-get install -y pkg-config libxml2 xsltproc wget xfonts-75dpi xfonts-base
+        sudo apt-get install -y pkg-config libxml2 xsltproc wget xfonts-75dpi xfonts-base ca-certificates
         cd /tmp
-        wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.bionic_amd64.deb
-        sudo dpkg -i wkhtmltox_0.12.6-1.bionic_amd64.deb
-        sudo apt -f install
+        wget -q https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.jammy_amd64.deb
+        sudo apt-get install -y ./wkhtmltox_0.12.6.1-3.jammy_amd64.deb
 
     - name: Install macOS Dependencies
       if: runner.os == 'macOS'
       run: |
-        brew install pkg-config libxml2 libxslt
-        brew install icu4c wkhtmltopdf
+        brew install pkg-config libxml2 libxslt icu4c
+        curl -fsSL -o /tmp/wkhtmltox.pkg https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-2/wkhtmltox-0.12.6-2.macos-cocoa.pkg
+        sudo installer -pkg /tmp/wkhtmltox.pkg -target /
+        echo "/usr/local/bin" >> "$GITHUB_PATH"
 
     # - name: Install Windows Dependencies
     #   if: runner.os == 'Windows'
