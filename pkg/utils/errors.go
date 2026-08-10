@@ -47,7 +47,7 @@ var (
 func validateCallbackByValue(data reflect.Value) error {
 	method := data.MethodByName(DefaultValidateFunction)
 	if method.IsValid() {
-		response := method.Call(nil)
+		response := method.Call(nil) //nolint:forbidigo // reflect dispatch for Validate()
 		if len(response) > 0 {
 			err := response[0]
 			if !err.IsNil() {
