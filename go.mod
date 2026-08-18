@@ -1,6 +1,6 @@
 module github.com/moov-io/1120x
 
-go 1.22
+go 1.25.0
 
 require (
 	github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.3
@@ -14,7 +14,7 @@ require (
 	github.com/antchfx/xpath v1.3.6 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/kr/text v0.2.0 // indirect
-	golang.org/x/net v0.33.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
+	golang.org/x/net v0.58.0 // indirect
+	golang.org/x/text v0.41.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
