@@ -1,5 +1,5 @@
-github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.2 h1:enQwehstpeaAnsyse1Aqb6r0sU5UJbiNvIqVmPo+KWI=
-github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.2/go.mod h1:SQq4xfIdvf6WYKSDxAJc+xOJdolt+/bc1jnQKMtPMvQ=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.3 h1:vrA6+R1BMLKMTbos8jAeuBrImHPGtY4gTlcue3OIej8=
+github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.3/go.mod h1:SQq4xfIdvf6WYKSDxAJc+xOJdolt+/bc1jnQKMtPMvQ=
 github.com/antchfx/xmlquery v1.5.1 h1:T9I4Ns1EXiWHy0IqKupGhnfTQtJwlGrpXtauYOoNv78=
 github.com/antchfx/xmlquery v1.5.1/go.mod h1:bVqnl7TaDXSReKINrhZz+2E/PbCu2tUahb+wZ7WZNT8=
 github.com/antchfx/xpath v1.3.6 h1:s0y+ElRRtTQdfHP609qFu0+c6bglDv20pqOViQjjdPI=
