@@ -92,7 +92,7 @@ func FormatXML(data []byte) ([]byte, error) {
 type SubmissionIdType string
 
 func (r SubmissionIdType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{13}[a-z0-9]{7}`)
+	reg := regexp.MustCompile(`^[0-9]{13}[a-z0-9]{7}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("SubmissionIdType is invalid")
 	}
