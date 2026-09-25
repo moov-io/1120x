@@ -314,7 +314,7 @@ func (r DocumentTypeCd) Validate() error {
 type EFINType string
 
 func (r EFINType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{6}`)
+	reg := regexp.MustCompile(`^[0-9]{6}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("EFINType is invalid")
 	}
@@ -325,7 +325,7 @@ func (r EFINType) Validate() error {
 type EINType string
 
 func (r EINType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{9}`)
+	reg := regexp.MustCompile(`^[0-9]{9}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("EINType is invalid")
 	}
@@ -336,7 +336,7 @@ func (r EINType) Validate() error {
 type ETINType string
 
 func (r ETINType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{5}`)
+	reg := regexp.MustCompile(`^[0-9]{5}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("ETINType is invalid")
 	}
@@ -681,7 +681,7 @@ func (r PINEnteredByType) Validate() error {
 type PINType string
 
 func (r PINType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{5}`)
+	reg := regexp.MustCompile(`^[0-9]{5}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PINType is invalid")
 	}
@@ -692,7 +692,7 @@ func (r PINType) Validate() error {
 type PTINType string
 
 func (r PTINType) Validate() error {
-	reg := regexp.MustCompile(`P[0-9]{8}`)
+	reg := regexp.MustCompile(`^P[0-9]{8}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("PTINType is invalid")
 	}
@@ -822,7 +822,7 @@ func (r ReturnTypeCd) Validate() error {
 type RoutingTransitNumberType string
 
 func (r RoutingTransitNumberType) Validate() error {
-	reg := regexp.MustCompile(`(01|02|03|04|05|06|07|08|09|10|11|12|21|22|23|24|25|26|27|28|29|30|31|32)[0-9]{7}`)
+	reg := regexp.MustCompile(`^(01|02|03|04|05|06|07|08|09|10|11|12|21|22|23|24|25|26|27|28|29|30|31|32)[0-9]{7}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("RoutingTransitNumberType is invalid")
 	}
@@ -833,7 +833,7 @@ func (r RoutingTransitNumberType) Validate() error {
 type SSNType string
 
 func (r SSNType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{9}`)
+	reg := regexp.MustCompile(`^[0-9]{9}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("SSNType is invalid")
 	}
@@ -844,7 +844,7 @@ func (r SSNType) Validate() error {
 type STINType string
 
 func (r STINType) Validate() error {
-	reg := regexp.MustCompile(`S[0-9]{8}`)
+	reg := regexp.MustCompile(`^S[0-9]{8}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("STINType is invalid")
 	}
@@ -1256,7 +1256,7 @@ func (t xsdTime) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 type SubmissionIdType string
 
 func (r SubmissionIdType) Validate() error {
-	reg := regexp.MustCompile(`[0-9]{13}[a-z0-9]{7}`)
+	reg := regexp.MustCompile(`^[0-9]{13}[a-z0-9]{7}$`)
 	if !reg.MatchString(string(r)) {
 		return errors.New("SubmissionIdType is invalid")
 	}
