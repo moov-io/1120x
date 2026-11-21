@@ -3,7 +3,7 @@ module github.com/moov-io/1120x
 go 1.26.0
 
 require (
-	github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.3
+	github.com/SebastiaanKlippert/go-wkhtmltopdf v1.9.4
 	github.com/antchfx/xmlquery v1.5.2
 	github.com/jbowtie/gokogiri v0.0.0-20250107075044-de0f9d4877a5
 	github.com/jbowtie/ratago v0.0.0-20200401224626-3140c0a9b186
